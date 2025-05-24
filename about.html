@@ -22,17 +22,40 @@
         line-height: 1.8;
         font-size: 1.125rem;
       }
-      /* 【最終版】導覽列樣式 */
+      /* 【最新最終版】導覽列樣式 */
       .nav-link {
         color: #ead7b0; 
         transition: color 0.3s ease; 
+        font-weight: 500; /* Noto Serif TC 的 normal weight 是 400 或 500，這裡用500確保與粗體有區別 */
       }
       .nav-link:hover {
         color: #FFFFFF; 
       }
       .active-nav {
         color: #FFFFFF; 
-        font-weight: 700; 
+        font-weight: 700; /* Tailwind's font-bold is 700 */
+      }
+
+      /* 滾動動畫樣式 (如果其他頁面也需要，這個可以保留) */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* 其他頁面共用的內容區樣式 (可以按需保留或調整) */
+       .contact-section strong {
+        color: #2E1200;
+       }
+       .log-section blockquote {
+        border-left: 4px solid #FBBF24; 
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #78716C; 
       }
     </style>
   </head>
@@ -55,7 +78,7 @@
         </div>
         <nav
           class="space-x-8 text-xl hidden md:flex items-center" 
-          style="color: #ead7b0"
+          style="color: #ead7b0" /* 預設文字顏色由 .nav-link 控制 */
         >
           <a href="index.html" class="nav-link">首頁</a>
           <a href="about.html" class="active-nav">關於本廟</a>
@@ -125,10 +148,8 @@
           window.pageYOffset || document.documentElement.scrollTop;
 
         if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-          // 向下滑
           header.classList.add("translate-y-[-100%]");
         } else {
-          // 向上滑
           header.classList.remove("translate-y-[-100%]");
         }
 
