@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>關於本廟 - 木柵集應廟田野調查</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Noto Serif TC", serif;
+      }
+      .content-section p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        font-size: 1.125rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
+    <header
+      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow transition-transform duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6"
+        style="height: 130px"
+      >
+        <div class="flex-1 flex items-center justify-start">
+          <a href="index.html">
+            <img
+              src="templeLogo.png"
+              alt="木柵集應廟 Logo"
+              class="h-[110px] object-contain"
+            />
+          </a>
+        </div>
+        <nav
+          class="space-x-6 text-lg hidden md:flex items-center"
+          style="color: #ead7b0"
+        >
+          <a href="index.html" class="hover:underline">首頁</a>
+          <a href="about.html" class="hover:underline font-bold">關於本廟</a>
+          <a href="deities.html" class="hover:underline">神明介紹</a>
+          <a href="culture.html" class="hover:underline">信仰活動</a>
+          <a href="artifacts.html" class="hover:underline">文物導覽</a>
+          <a href="interview.html" class="hover:underline">田野記錄</a>
+          <a href="reflection.html" class="hover:underline">組員心得</a>
+          <a href="contact.html" class="hover:underline">聯絡我們</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-[170px] pb-16 lg:pb-24">
+      <div class="max-w-4xl mx-auto px-6">
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200]">
+          關於本廟
+        </h1>
+
+        <div class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg content-section">
+          
+          <section>
+            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+              起源與沿革
+            </h2>
+            <p>
+              【請在此處填寫詳細的廟宇起源與歷史背景，例如：安西遷台、香爐分靈的故事...】
+            </p>
+            <p>
+              【建立年代：根據您的資料，可在此詳述清德宗光緒甲午年（1894年）的建廟過程...】
+            </p>
+          </section>
+
+          <section class="mt-12">
+            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+              建築特色
+            </h2>
+            <p>
+              【請在此處描述建築特色，例如：金色主體、細緻雕刻、三性分廟的特殊格局...】
+            </p>
+          </section>
+
+          <section class="mt-12">
+            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+              組織與輪值
+            </h2>
+            <p>
+              【請在此處說明張氏九房、七房輪值的特殊制度與廟宇的組織運作方式...】
+            </p>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
+      <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
+    </footer>
+    
+    <script>
+      let lastScrollTop = 0;
+      const header = document.querySelector("header");
+      const headerHeight = header.offsetHeight;
+
+      window.addEventListener("scroll", () => {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+          // 向下滑
+          header.classList.add("translate-y-[-100%]");
+        } else {
+          // 向上滑
+          header.classList.remove("translate-y-[-100%]");
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+    </script>
+  </body>
+</html>

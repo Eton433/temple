@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>信仰活動 - 木柵集應廟田野調查</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Noto Serif TC", serif;
+      }
+      .activity-section p {
+        line-height: 1.8;
+        font-size: 1.125rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
+    <header
+      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow transition-transform duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6"
+        style="height: 130px"
+      >
+        <div class="flex-1 flex items-center justify-start">
+          <a href="index.html">
+            <img
+              src="templeLogo.png"
+              alt="木柵集應廟 Logo"
+              class="h-[110px] object-contain"
+            />
+          </a>
+        </div>
+        <nav
+          class="space-x-6 text-lg hidden md:flex items-center"
+          style="color: #ead7b0"
+        >
+          <a href="index.html" class="hover:underline">首頁</a>
+          <a href="about.html" class="hover:underline">關於本廟</a>
+          <a href="deities.html" class="hover:underline">神明介紹</a>
+          <a href="culture.html" class="hover:underline font-bold">信仰活動</a> <a href="artifacts.html" class="hover:underline">文物導覽</a>
+          <a href="interview.html" class="hover:underline">田野記錄</a>
+          <a href="reflection.html" class="hover:underline">組員心得</a>
+          <a href="contact.html" class="hover:underline">聯絡我們</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-[170px] pb-16 lg:pb-24">
+      <div class="max-w-4xl mx-auto px-6">
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200]">
+          信仰活動
+        </h1>
+
+        <section class="mb-16 activity-section">
+          <div class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">文昌祈福</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <p class="font-semibold">主要儀式：摸魁星筆、便條紙牆</p>
+                <p>
+                  【請在此處詳細描述文昌祈福的過程，例如考生如何透過觸摸魁星筆來祈求考運，以及在便條紙牆上寫下心願的特殊文化...】
+                </p>
+              </div>
+              <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=文昌祈福活動照片" alt="文昌祈福" class="rounded-lg shadow-md w-full">
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-16 activity-section">
+          <div class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">年度大事</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=文昌百宴或上山巡視" alt="年度大事" class="rounded-lg shadow-md w-full md:order-last">
+              <div>
+                <p class="font-semibold">主要活動：文昌百宴、上山巡視</p>
+                <p>
+                  【請在此處分別介紹這兩項年度盛事。描述文昌百宴的由來與形式，以及上山巡視的路線與意義...】
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="mb-16 activity-section">
+          <div class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">罕見活動：力交</h2>
+            <p>
+              【「力交」是非常特殊的活動，請在此詳細說明它的進行方式、歷史淵源以及在現代社會中的傳承情況...】
+            </p>
+             </div>
+        </section>
+
+        <section class="activity-section">
+          <div class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">還願文化與故事</h2>
+            <p>
+              【請在此處分享您在田野調查中觀察到的還願文化，例如信眾會準備哪些特殊的供品（如油飯），以及背後有哪些感人的還願故事...】
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
+      <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
+    </footer>
+    
+    <script>
+      let lastScrollTop = 0;
+      const header = document.querySelector("header");
+      const headerHeight = header.offsetHeight;
+
+      window.addEventListener("scroll", () => {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+          // 向下滑
+          header.classList.add("translate-y-[-100%]");
+        } else {
+          // 向上滑
+          header.classList.remove("translate-y-[-100%]");
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+    </script>
+  </body>
+</html>
