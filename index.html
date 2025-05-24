@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>木柵集應廟</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body class="bg-yellow-100 text-gray-800 min-h-screen">
+
+    <!-- 導覽列 -->
+    <header class="bg-yellow-900 text-white fixed w-full top-0 z-50 shadow">
+      <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <h1 class="text-2xl font-bold">木柵集應廟</h1>
+        <nav class="space-x-6 text-lg hidden md:block">
+          <a href="index.html" class="hover:underline">首頁</a>
+          <a href="about.html" class="hover:underline">關於本廟</a>
+          <a href="deities.html" class="hover:underline">神明介紹</a>
+          <a href="culture.html" class="hover:underline">信仰活動</a>
+          <a href="artifacts.html" class="hover:underline">文物導覽</a>
+          <a href="contact.html" class="hover:underline">聯絡我們</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 主視覺區（高度精簡、圖片加長） -->
+    <section class="pt-[96px] pb-12">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-start gap-10 px-6">
+        <!-- 圖片 -->
+        <div class="flex justify-center items-start">
+          <div class="border-4 border-yellow-800 rounded-xl shadow-lg overflow-hidden">
+            <img
+              src="templeImage.jpg"
+              alt="木柵集應廟主視覺"
+              class="w-full max-h-[700px] object-cover"
+            />
+          </div>
+        </div>
+
+        <!-- 文字 -->
+        <div class="text-center lg:text-left flex flex-col justify-center mt-20"">
+          <h2 class="text-4xl font-extrabold text-yellow-900 mb-6">香火延綿，信仰不息</h2>
+          <p class="text-lg leading-relaxed text-gray-800">
+            木柵集應廟，源自張姓祖先自全州安西遷台的信仰傳承。<br />s
+            廟中香爐、匾額與神像皆承載兩百年歷史記憶，<br />
+            是張氏家族與木柵地方的共同精神象徵。
+          </p>
+          <a
+            href="about.html"
+            class="inline-block mt-8 px-6 py-2 bg-yellow-800 text-white text-lg rounded-lg shadow-md hover:bg-yellow-700 transition"
+          >
+            了解更多
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-yellow-900 text-white text-center py-6 mt-16">
+      © 2025 木柵集應廟．保留所有權利
+    </footer>
+  </body>
+</html>
