@@ -21,6 +21,18 @@
         line-height: 1.8;
         font-size: 1.125rem;
       }
+      /* 【最終版】導覽列樣式 */
+      .nav-link {
+        color: #ead7b0; 
+        transition: color 0.3s ease; 
+      }
+      .nav-link:hover {
+        color: #FFFFFF; 
+      }
+      .active-nav {
+        color: #FFFFFF; 
+        font-weight: 700; 
+      }
     </style>
   </head>
   <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
@@ -41,16 +53,17 @@
           </a>
         </div>
         <nav
-          class="space-x-6 text-lg hidden md:flex items-center"
+          class="space-x-8 text-xl hidden md:flex items-center" 
           style="color: #ead7b0"
         >
-          <a href="index.html" class="hover:underline">首頁</a>
-          <a href="about.html" class="hover:underline">關於本廟</a>
-          <a href="deities.html" class="hover:underline">神明介紹</a>
-          <a href="culture.html" class="hover:underline">信仰活動</a>
-          <a href="artifacts.html" class="hover:underline font-bold">文物導覽</a> <a href="interview.html" class="hover:underline">田野記錄</a>
-          <a href="reflection.html" class="hover:underline">組員心得</a>
-          <a href="contact.html" class="hover:underline">聯絡我們</a>
+          <a href="index.html" class="nav-link">首頁</a>
+          <a href="about.html" class="nav-link">關於本廟</a>
+          <a href="deities.html" class="nav-link">神明介紹</a>
+          <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="artifacts.html" class="active-nav">文物導覽</a> 
+          <a href="interview.html" class="nav-link">田野記錄</a>
+          <a href="reflection.html" class="nav-link">組員心得</a>
+          <a href="contact.html" class="nav-link">聯絡我們</a>
         </nav>
       </div>
     </header>

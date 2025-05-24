@@ -16,20 +16,35 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
-        scroll-behavior: smooth; /* 讓頁面滾動更平滑 */
-
-        /* 載入背景圖，並在上方疊加一層 85% 透明度的米白(#f5f5f4)漸層 */
-        background-image: linear-gradient(
-            rgba(245, 245, 244, 0.85),
-            rgba(245, 245, 244, 0.85)
-          ),
-          url("background.png"); /* 這是一張宣紙紋理的範例圖 */
-
-        background-size: cover; /* 讓圖片填滿整個畫面 */
-        background-attachment: fixed; /* 固定背景，內容滾動時背景不動，產生視差效果 */
-        background-position: center; /* 圖片置中 */
+        scroll-behavior: smooth; 
       }
-      /* 【新增】滾動動畫的基礎樣式 */
+      
+      /* 【背景圖樣式】 */
+      body {
+        /* 疊加一層 60% 透明度的白色漸層，讓文字更清晰 */
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+          url('background.png'); /* 請將 'background.png' 換成您的圖片路徑 */
+        
+        background-size: cover; 
+        background-attachment: fixed; 
+        background-position: center; 
+      }
+
+      /* 【導覽列樣式】 */
+      .nav-link {
+        color: #ead7b0; 
+        transition: color 0.3s ease; 
+      }
+      .nav-link:hover {
+        color: #FFFFFF; 
+      }
+      .active-nav {
+        color: #FFFFFF; 
+        font-weight: 700; 
+      }
+
+      /* 【滾動動畫樣式】 */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -41,7 +56,7 @@
       }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
+  <body class="text-[#5A1E06] min-h-screen">
     <header
       class="bg-[#2E1200] fixed w-full top-0 z-50 shadow transition-transform duration-300"
     >
@@ -58,194 +73,157 @@
             />
           </a>
         </div>
-
         <nav
-          class="space-x-6 text-lg hidden md:flex items-center"
+          class="space-x-8 text-xl hidden md:flex items-center" 
           style="color: #ead7b0"
         >
-          <a href="index.html" class="hover:underline">首頁</a>
-          <a href="about.html" class="hover:underline">關於本廟</a>
-          <a href="deities.html" class="hover:underline">神明介紹</a>
-          <a href="culture.html" class="hover:underline">信仰活動</a>
-          <a href="artifacts.html" class="hover:underline">文物導覽</a>
-          <a href="interview.html" class="hover:underline">田野記錄</a>
-          <a href="reflection.html" class="hover:underline">組員心得</a>
-          <a href="contact.html" class="hover:underline">聯絡我們</a>
+          <a href="index.html" class="active-nav">首頁</a>
+          <a href="about.html" class="nav-link">關於本廟</a>
+          <a href="deities.html" class="nav-link">神明介紹</a>
+          <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="artifacts.html" class="nav-link">文物導覽</a>
+          <a href="interview.html" class="nav-link">田野記錄</a>
+          <a href="reflection.html" class="nav-link">組員心得</a>
+          <a href="contact.html" class="nav-link">聯絡我們</a>
         </nav>
       </div>
     </header>
 
-    <section class="pt-[170px] pb-12">
-      <div
-        class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 px-6"
-      >
-        <div class="flex justify-center items-start reveal">
-          <div
-            class="border-4 border-yellow-800 rounded-xl shadow-lg overflow-hidden"
-          >
-            <img
-              src="templeImage.jpg"
-              alt="木柵集應廟主視覺"
-              class="w-full max-h-[700px] object-cover"
-            />
-          </div>
-        </div>
-
+    <main>
+        <section class="pt-[170px] pb-12">
         <div
-          class="text-center lg:text-left flex flex-col justify-center reveal"
+            class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 px-6"
         >
-          <h1 class="text-2xl font-bold text-[#5A1E06]">
-            國立政治大學・地方文史與田野調查
-          </h1>
-          <h2 class="text-4xl font-extrabold my-4 text-[#2E1200]">
-            木柵集應廟・信仰探尋之路
-          </h2>
-          <p class="text-lg leading-relaxed text-[#5A1E06]">
-            本網站為課程的期末成果展現。<br />
-            透過實地走訪、訪談與文獻整理，<br />
-            記錄我們在木柵集應廟的所見所聞與深刻體悟。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-16">
-      <div class="max-w-7xl mx-auto px-6">
-        <h3 class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal">
-          探索我們的發現
-        </h3>
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
-        >
-          <a
-            href="about.html"
-            class="block bg-stone-100 p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
-          >
-            <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">關於本廟</h4>
-            <p class="text-[#5A1E06]">廟宇的起源、歷史沿革與建築特色。</p>
-          </a>
-          <a
-            href="deities.html"
-            class="block bg-stone-100 p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
-            style="transition-delay: 100ms"
-          >
-            <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">神明介紹</h4>
-            <p class="text-[#5A1E06]">深入認識保儀尊王與其他配祀神明。</p>
-          </a>
-          <a
-            href="culture.html"
-            class="block bg-stone-100 p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
-            style="transition-delay: 200ms"
-          >
-            <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">信仰活動</h4>
-            <p class="text-[#5A1E06]">探索文昌祈福、年度大事等文化實踐。</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-white py-20">
-      <div class="max-w-7xl mx-auto px-6">
-        <h3 class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal">
-          專題亮點
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div class="text-center reveal">
-            <a href="artifacts.html" class="block group">
-              <div class="overflow-hidden rounded-lg shadow-lg">
+            <div class="flex justify-center items-start reveal">
+              <div class="rounded-xl shadow-lg overflow-hidden">
                 <img
-                  src="https://via.placeholder.com/800x600/cccccc/2E1200?text=百年香爐"
-                  alt="百年香爐"
-                  class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
+                src="templeImage.jpg"
+                alt="木柵集應廟主視覺"
+                class="w-full max-h-[700px] object-cover"
                 />
               </div>
-              <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">
-                渡海來台的香爐
-              </h4>
-              <p class="text-[#5A1E06]">
-                見證兩百年信仰傳承的起點，承載著家族與地方的共同記憶。
-              </p>
-            </a>
-          </div>
-          <div class="text-center reveal" style="transition-delay: 100ms">
-            <a href="culture.html" class="block group">
-              <div class="overflow-hidden rounded-lg shadow-lg">
-                <img
-                  src="https://via.placeholder.com/800x600/cccccc/2E1200?text=文昌祈福"
-                  alt="文昌祈福"
-                  class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">
-                獨特的文昌祈福
-              </h4>
-              <p class="text-[#5A1E06]">
-                不只是拜文昌，還有摸魁星筆、寫祈福牆等特殊的祈願儀式。
-              </p>
-            </a>
-          </div>
-          <div class="text-center reveal" style="transition-delay: 200ms">
-            <a href="deities.html" class="block group">
-              <div class="overflow-hidden rounded-lg shadow-lg">
-                <img
-                  src="https://via.placeholder.com/800x600/cccccc/2E1200?text=申國夫人"
-                  alt="申國夫人"
-                  class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">
-                走在陣前的夫人
-              </h4>
-              <p class="text-[#5A1E06]">
-                在遶境隊伍中，申國夫人為何總是走在保儀尊王的前面？
-              </p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+            </div>
 
-    <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
+            <div class="text-center lg:text-left flex flex-col justify-center reveal">
+            <h1 class="text-2xl font-bold text-[#5A1E06]">
+                國立政治大學・地方文史與田野調查
+            </h1>
+            <h2 class="text-4xl font-extrabold my-4 text-[#2E1200]">
+                木柵集應廟・信仰探尋之路
+            </h2>
+            <p class="text-lg leading-relaxed text-[#5A1E06]">
+                本網站為課程的期末成果展現。<br />
+                透過實地走訪、訪談與文獻整理，<br />
+                記錄我們在木柵集應廟的所見所聞與深刻體悟。
+            </p>
+            </div>
+        </div>
+        </section>
+
+        <section class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal">
+            探索我們的發現
+            </h3>
+            <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
+            >
+            <a
+                href="about.html"
+                class="block bg-stone-50/80 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+            >
+                <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">關於本廟</h4>
+                <p class="text-[#5A1E06]">廟宇的起源、歷史沿革與建築特色。</p>
+            </a>
+            <a
+                href="deities.html"
+                class="block bg-stone-50/80 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+                style="transition-delay: 100ms"
+            >
+                <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">神明介紹</h4>
+                <p class="text-[#5A1E06]">深入認識保儀尊王與其他配祀神明。</p>
+            </a>
+            <a
+                href="culture.html"
+                class="block bg-stone-50/80 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+                style="transition-delay: 200ms"
+            >
+                <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">信仰活動</h4>
+                <p class="text-[#5A1E06]">探索文昌祈福、年度大事等文化實踐。</p>
+            </a>
+            </div>
+        </div>
+        </section>
+
+        <section class="bg-white/70 backdrop-blur-sm py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal">
+            專題亮點
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="text-center reveal">
+                <a href="artifacts.html" class="block group">
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=百年香爐" alt="百年香爐" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">渡海來台的香爐</h4>
+                <p class="text-[#5A1E06]">見證兩百年信仰傳承的起點，承載著家族與地方的共同記憶。</p>
+                </a>
+            </div>
+            <div class="text-center reveal" style="transition-delay: 100ms">
+                <a href="culture.html" class="block group">
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=文昌祈福" alt="文昌祈福" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">獨特的文昌祈福</h4>
+                <p class="text-[#5A1E06]">不只是拜文昌，還有摸魁星筆、寫祈福牆等特殊的祈願儀式。</p>
+                </a>
+            </div>
+            <div class="text-center reveal" style="transition-delay: 200ms">
+                <a href="deities.html" class="block group">
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=申國夫人" alt="申國夫人" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">走在陣前的夫人</h4>
+                <p class="text-[#5A1E06]">在遶境隊伍中，申國夫人為何總是走在保儀尊王的前面？</p>
+                </a>
+            </div>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#2E1200] text-white text-center py-6">
       <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
     </footer>
 
     <script>
-      // 導覽列滑動隱藏效果
       let lastScrollTop = 0;
       const header = document.querySelector("header");
       const headerHeight = header.offsetHeight;
-
       window.addEventListener("scroll", () => {
         const scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
-
         if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
           header.classList.add("translate-y-[-100%]");
         } else {
           header.classList.remove("translate-y-[-100%]");
         }
-
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
       });
 
-      // 【新增】滾動顯示動畫效果
       const revealElements = document.querySelectorAll(".reveal");
-
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.1, // 元素進入畫面 10% 時觸發
-        }
-      );
-
-      revealElements.forEach((element) => {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1 
+      });
+      revealElements.forEach(element => {
         revealObserver.observe(element);
       });
     </script>

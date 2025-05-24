@@ -21,9 +21,21 @@
         line-height: 1.8;
         font-size: 1.125rem;
       }
-       .contact-section strong {
+      .contact-section strong {
         color: #2E1200;
-       }
+      }
+      /* 【最終版】導覽列樣式 */
+      .nav-link {
+        color: #ead7b0; 
+        transition: color 0.3s ease; 
+      }
+      .nav-link:hover {
+        color: #FFFFFF; 
+      }
+      .active-nav {
+        color: #FFFFFF; 
+        font-weight: 700; 
+      }
     </style>
   </head>
   <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
@@ -44,34 +56,38 @@
           </a>
         </div>
         <nav
-          class="space-x-6 text-lg hidden md:flex items-center"
+          class="space-x-8 text-xl hidden md:flex items-center" 
           style="color: #ead7b0"
         >
-          <a href="index.html" class="hover:underline">首頁</a>
-          <a href="about.html" class="hover:underline">關於本廟</a>
-          <a href="deities.html" class="hover:underline">神明介紹</a>
-          <a href="culture.html" class="hover:underline">信仰活動</a>
-          <a href="artifacts.html" class="hover:underline">文物導覽</a>
-          <a href="interview.html" class="hover:underline">田野記錄</a>
-          <a href="reflection.html" class="hover:underline">組員心得</a>
-          <a href="contact.html" class="hover:underline font-bold">聯絡我們</a> </nav>
+          <a href="index.html" class="nav-link">首頁</a>
+          <a href="about.html" class="nav-link">關於本廟</a>
+          <a href="deities.html" class="nav-link">神明介紹</a>
+          <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="artifacts.html" class="nav-link">文物導覽</a>
+          <a href="interview.html" class="nav-link">田野記錄</a>
+          <a href="reflection.html" class="nav-link">組員心得</a>
+          <a href="contact.html" class="active-nav">聯絡我們</a>
+        </nav>
       </div>
     </header>
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200]">
+        <h1
+          class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200]"
+        >
           聯絡我們與致謝
         </h1>
 
-        <div class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg space-y-8 contact-section">
-
+        <div
+          class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg space-y-8 contact-section"
+        >
           <section>
             <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">課程資訊</h2>
             <p><strong>課程名稱：</strong>【請在此處填寫課程全名】</p>
             <p><strong>指導老師：</strong>【請在此處填寫指導老師姓名】</p>
           </section>
-          
+
           <section>
             <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">特別感謝</h2>
             <p>
@@ -80,7 +96,9 @@
           </section>
 
           <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">組員名單與分工</h2>
+            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">
+              組員名單與分工
+            </h2>
             <p><strong>組員：</strong>俋伶、郁庭、秉毅、以昕</p>
             <p>【您可以在此簡述各組員的分工情況，如果有的話...】</p>
           </section>
@@ -91,7 +109,6 @@
               本網站為學術課程「地方文史與田野調查」之成果展示，內容僅供學術交流與成果發表使用，並非木柵集應廟之官方網站。網站中所呈現之部分圖像、文字資料，版權為原作者及木柵集應廟所有，若有任何疑問，歡迎隨時與我們聯繫。
             </p>
           </section>
-
         </div>
       </div>
     </main>
@@ -99,7 +116,7 @@
     <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
       <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
     </footer>
-    
+
     <script>
       let lastScrollTop = 0;
       const header = document.querySelector("header");
