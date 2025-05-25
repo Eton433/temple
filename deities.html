@@ -17,13 +17,12 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
-      .deity-card p {
-        line-height: 1.8;
-      }
-      /* 【最終版】導覽列樣式 */
+      
+      /* 導覽列樣式 */
       .nav-link {
         color: #ead7b0; 
         transition: color 0.3s ease; 
+        font-weight: 500; 
       }
       .nav-link:hover {
         color: #FFFFFF; 
@@ -32,11 +31,54 @@
         color: #FFFFFF; 
         font-weight: 700; 
       }
+
+      /* 滾動動畫樣式 */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* 內容區通用樣式 */
+      .content-section p, 
+      .log-section p, .log-section li, 
+      .reflection-card p, 
+      .contact-section p, 
+      .activity-section p, 
+      .artifact-section p, 
+      .deity-card p { /* 【新增】deity-card p 的通用樣式 */
+        line-height: 1.8;
+        font-size: 1.125rem; /* 18px */
+      }
+       .contact-section strong {
+        color: #2E1200;
+       }
+       .log-section blockquote {
+        border-left: 4px solid #FBBF24; 
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #78716C; 
+      }
+
+      /* 手機版導覽選單的額外樣式 */
+      #mobile-menu nav a {
+        display: block; 
+        padding: 0.75rem 1.5rem; 
+        text-align: center; 
+        border-bottom: 1px solid rgba(234, 215, 176, 0.15); 
+      }
+      #mobile-menu nav a:last-child {
+        border-bottom: none; 
+      }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
     <header
-      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow transition-transform duration-300"
+      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300"
     >
       <div
         class="max-w-7xl mx-auto flex items-center justify-between px-6"
@@ -45,19 +87,41 @@
         <div class="flex-1 flex items-center justify-start">
           <a href="index.html">
             <img
-              src="templeLogo.png"
+              src="templeLogo.png" 
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
             />
           </a>
         </div>
+
         <nav
-          class="space-x-8 text-xl hidden md:flex items-center" 
-          style="color: #ead7b0"
+          id="desktop-nav" 
+          class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="nav-link">首頁</a>
+          <a href="about.html" class="nav-link">關於本廟</a> 
+          <a href="deities.html" class="active-nav">神明介紹</a> <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="artifacts.html" class="nav-link">文物導覽</a>
+          <a href="interview.html" class="nav-link">田野記錄</a>
+          <a href="reflection.html" class="nav-link">組員心得</a>
+          <a href="contact.html" class="nav-link">聯絡我們</a>
+        </nav>
+
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" aria-label="開啟選單" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg">
+        <nav class="flex flex-col py-2 text-xl"> 
+          <a href="index.html" class="nav-link">首頁</a> 
           <a href="about.html" class="nav-link">關於本廟</a>
-          <a href="deities.html" class="active-nav">神明介紹</a> 
+          <a href="deities.html" class="active-nav">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
           <a href="artifacts.html" class="nav-link">文物導覽</a>
           <a href="interview.html" class="nav-link">田野記錄</a>
@@ -69,17 +133,16 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-6xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200]">
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200] reveal">
           神明介紹
         </h1>
 
-        <section class="mb-16">
+        <section class="mb-16 reveal" style="transition-delay: 100ms;">
           <h2 class="text-3xl font-bold text-center mb-8 text-[#2E1200]">主祀神明</h2>
-          <div class="bg-stone-100 rounded-lg shadow-lg overflow-hidden md:flex md:items-center">
-            <div class="md:w-1/2">
-              <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=保儀尊王+神像" alt="保儀尊王" class="w-full h-full object-cover">
+          <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden md:flex md:items-center deity-card"> <div class="md:w-1/2">
+              <img src="https://placehold.co/800x600/cccccc/2E1200?text=保儀尊王+神像" alt="保儀尊王" class="w-full h-full object-cover">
             </div>
-            <div class="p-8 md:w-1/2 deity-card">
+            <div class="p-8 md:w-1/2">
               <h3 class="text-3xl font-bold mb-3 text-[#2E1200]">保儀尊王</h3>
               <p class="font-semibold mb-4">職掌：【請填寫保儀尊王的職掌，例如守護鄉里、農業保護等】</p>
               <p>
@@ -89,12 +152,11 @@
           </div>
         </section>
 
-        <section>
+        <section class="reveal" style="transition-delay: 200ms;">
           <h2 class="text-3xl font-bold text-center mb-8 text-[#2E1200]">配祀神明</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             
-            <div class="bg-stone-100 rounded-lg shadow-lg overflow-hidden deity-card">
-              <img src="https://via.placeholder.com/600x400/cccccc/2E1200?text=申國夫人+神像" alt="申國夫人" class="w-full h-64 object-cover">
+            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card reveal" style="transition-delay: 300ms;"> <img src="https://placehold.co/600x400/cccccc/2E1200?text=申國夫人+神像" alt="申國夫人" class="w-full h-64 object-cover">
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-2 text-[#2E1200]">申國夫人</h3>
                 <p class="font-semibold mb-3">職掌：【請填寫申國夫人的職掌】</p>
@@ -102,8 +164,7 @@
               </div>
             </div>
 
-            <div class="bg-stone-100 rounded-lg shadow-lg overflow-hidden deity-card">
-              <img src="https://via.placeholder.com/600x400/cccccc/2E1200?text=文昌帝君+神像" alt="文昌帝君" class="w-full h-64 object-cover">
+            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card reveal" style="transition-delay: 400ms;"> <img src="https://placehold.co/600x400/cccccc/2E1200?text=文昌帝君+神像" alt="文昌帝君" class="w-full h-64 object-cover">
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-2 text-[#2E1200]">文昌帝君</h3>
                 <p class="font-semibold mb-3">職掌：【請填寫文昌帝君的職掌，如功名、學業等】</p>
@@ -111,8 +172,7 @@
               </div>
             </div>
 
-            <div class="bg-stone-100 rounded-lg shadow-lg overflow-hidden deity-card md:col-span-2">
-              <div class="p-6">
+            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card md:col-span-2 reveal" style="transition-delay: 500ms;"> <div class="p-6">
                 <h3 class="text-2xl font-bold mb-2 text-[#2E1200]">財神</h3>
                 <p class="font-semibold mb-3">職掌：【請填寫財神的職掌，如正財、偏財等】</p>
                 <p>【請在此處分別說明文財神、武財神、偏財神的信仰傳說與故事...】</p>
@@ -130,24 +190,64 @@
     </footer>
     
     <script>
-      let lastScrollTop = 0;
-      const header = document.querySelector("header");
-      const headerHeight = header.offsetHeight;
-
-      window.addEventListener("scroll", () => {
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-          // 向下滑
-          header.classList.add("translate-y-[-100%]");
-        } else {
-          // 向上滑
-          header.classList.remove("translate-y-[-100%]");
+      (function() {
+        // 【修改】確保每個頁面的初始化標誌是唯一的
+        if (window.pageScriptInitialized_deities) { 
+          return;
         }
+        window.pageScriptInitialized_deities = true;
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
+        let lastScrollTop = 0;
+        const header = document.querySelector("header");
+      
+        function handleScroll() {
+          window.requestAnimationFrame(() => {
+              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              const currentHeaderHeight = header ? header.offsetHeight : 0; 
+              if (header) {
+                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+                header.classList.add("translate-y-[-100%]");
+                } else {
+                header.classList.remove("translate-y-[-100%]");
+                }
+              }
+              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+          });
+        }
+      
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        window.addEventListener('load', () => {
+          if (header) {
+            window.addEventListener("scroll", handleScroll, { passive: true });
+          }
+
+          if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', (event) => {
+              event.stopPropagation();
+              mobileMenu.classList.toggle('hidden');
+            });
+          }
+        });
+
+        const revealElements = document.querySelectorAll(".reveal");
+        if (revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+                }
+            });
+            }, {
+            threshold: 0.15 
+            });
+            revealElements.forEach(element => {
+            revealObserver.observe(element);
+            });
+        }
+      })();
     </script>
   </body>
 </html>

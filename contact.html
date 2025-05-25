@@ -17,17 +17,12 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
-      .contact-section p {
-        line-height: 1.8;
-        font-size: 1.125rem;
-      }
-      .contact-section strong {
-        color: #2E1200;
-      }
-      /* 【最終版】導覽列樣式 */
+      
+      /* 導覽列樣式 */
       .nav-link {
         color: #ead7b0; 
         transition: color 0.3s ease; 
+        font-weight: 500; 
       }
       .nav-link:hover {
         color: #FFFFFF; 
@@ -36,11 +31,54 @@
         color: #FFFFFF; 
         font-weight: 700; 
       }
+
+      /* 滾動動畫樣式 */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* 內容區通用樣式 */
+      .content-section p, 
+      .log-section p, .log-section li, 
+      .reflection-card p, 
+      .contact-section p, /* 【新增】contact-section p 的通用樣式 */
+      .activity-section p, 
+      .artifact-section p, 
+      .deity-card p {
+        line-height: 1.8;
+        font-size: 1.125rem; /* 18px */
+      }
+       .contact-section strong { /* 【保留】contact.html 特有的 strong 樣式 */
+        color: #2E1200;
+       }
+       .log-section blockquote {
+        border-left: 4px solid #FBBF24; 
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #78716C; 
+      }
+
+      /* 手機版導覽選單的額外樣式 */
+      #mobile-menu nav a {
+        display: block; 
+        padding: 0.75rem 1.5rem; 
+        text-align: center; 
+        border-bottom: 1px solid rgba(234, 215, 176, 0.15); 
+      }
+      #mobile-menu nav a:last-child {
+        border-bottom: none; 
+      }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
     <header
-      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow transition-transform duration-300"
+      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300"
     >
       <div
         class="max-w-7xl mx-auto flex items-center justify-between px-6"
@@ -49,17 +87,39 @@
         <div class="flex-1 flex items-center justify-start">
           <a href="index.html">
             <img
-              src="templeLogo.png"
+              src="templeLogo.png" 
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
             />
           </a>
         </div>
+
         <nav
-          class="space-x-8 text-xl hidden md:flex items-center" 
-          style="color: #ead7b0"
+          id="desktop-nav" 
+          class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="nav-link">首頁</a>
+          <a href="about.html" class="nav-link">關於本廟</a> 
+          <a href="deities.html" class="nav-link">神明介紹</a> 
+          <a href="culture.html" class="nav-link">信仰活動</a> 
+          <a href="artifacts.html" class="nav-link">文物導覽</a> 
+          <a href="interview.html" class="nav-link">田野記錄</a> 
+          <a href="reflection.html" class="nav-link">組員心得</a> 
+          <a href="contact.html" class="active-nav">聯絡我們</a> </nav>
+
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" aria-label="開啟選單" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg">
+        <nav class="flex flex-col py-2 text-xl"> 
+          <a href="index.html" class="nav-link">首頁</a> 
           <a href="about.html" class="nav-link">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
@@ -73,42 +133,39 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1
-          class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200]"
-        >
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200] reveal">
           聯絡我們與致謝
         </h1>
 
-        <div
-          class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg space-y-8 contact-section"
-        >
-          <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">課程資訊</h2>
+        <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl space-y-8 contact-section reveal" style="transition-delay: 100ms;">
+
+          <section class="reveal" style="transition-delay: 200ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">課程資訊</h2>
             <p><strong>課程名稱：</strong>【請在此處填寫課程全名】</p>
             <p><strong>指導老師：</strong>【請在此處填寫指導老師姓名】</p>
           </section>
-
-          <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">特別感謝</h2>
+          
+          <section class="reveal" style="transition-delay: 300ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">特別感謝</h2>
             <p>
               【請在此處填寫致謝詞，感謝在田野調查過程中提供協助的單位與人員，例如：木柵集應廟管理委員會、張主委、熱心導覽的志工大哥，以及所有接受我們訪談的信眾們...】
             </p>
           </section>
 
-          <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200]">
+          <section class="reveal" style="transition-delay: 400ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
               組員名單與分工
             </h2>
             <p><strong>組員：</strong>俋伶、郁庭、秉毅、以昕</p>
             <p>【您可以在此簡述各組員的分工情況，如果有的話...】</p>
           </section>
 
-          <section class="mt-12 border-t-2 border-yellow-800 pt-8">
-            <h2 class="text-2xl font-bold mb-4 text-red-800">網站聲明</h2>
-            <p class="font-semibold">
+          <section class="mt-12 border-t-2 border-yellow-700 pt-8 reveal" style="transition-delay: 500ms;">
+            <h2 class="text-2xl font-bold mb-4 text-red-700">網站聲明</h2> <p class="font-semibold">
               本網站為學術課程「地方文史與田野調查」之成果展示，內容僅供學術交流與成果發表使用，並非木柵集應廟之官方網站。網站中所呈現之部分圖像、文字資料，版權為原作者及木柵集應廟所有，若有任何疑問，歡迎隨時與我們聯繫。
             </p>
           </section>
+
         </div>
       </div>
     </main>
@@ -116,26 +173,65 @@
     <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
       <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
     </footer>
-
+    
     <script>
-      let lastScrollTop = 0;
-      const header = document.querySelector("header");
-      const headerHeight = header.offsetHeight;
-
-      window.addEventListener("scroll", () => {
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-          // 向下滑
-          header.classList.add("translate-y-[-100%]");
-        } else {
-          // 向上滑
-          header.classList.remove("translate-y-[-100%]");
+      (function() {
+        if (window.pageScriptInitialized_contact) { // 【修改】初始化標誌
+          return;
         }
+        window.pageScriptInitialized_contact = true; // 【修改】初始化標誌
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
+        let lastScrollTop = 0;
+        const header = document.querySelector("header");
+      
+        function handleScroll() {
+          window.requestAnimationFrame(() => {
+              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              const currentHeaderHeight = header ? header.offsetHeight : 0; 
+              if (header) {
+                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+                header.classList.add("translate-y-[-100%]");
+                } else {
+                header.classList.remove("translate-y-[-100%]");
+                }
+              }
+              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+          });
+        }
+      
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        window.addEventListener('load', () => {
+          if (header) {
+            window.addEventListener("scroll", handleScroll, { passive: true });
+          }
+
+          if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', (event) => {
+              event.stopPropagation();
+              mobileMenu.classList.toggle('hidden');
+            });
+          }
+        });
+
+        const revealElements = document.querySelectorAll(".reveal");
+        if (revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+                }
+            });
+            }, {
+            threshold: 0.15 
+            });
+            revealElements.forEach(element => {
+            revealObserver.observe(element);
+            });
+        }
+      })();
     </script>
   </body>
 </html>

@@ -17,32 +17,33 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
+      
       /* 導覽列樣式 */
       .nav-link {
         color: #ead7b0; 
         transition: color 0.3s ease; 
-        font-weight: 500; /* 正常字重 */
+        font-weight: 500; 
       }
       .nav-link:hover {
         color: #FFFFFF; 
       }
       .active-nav {
         color: #FFFFFF; 
-        font-weight: 700; /* 粗體 */
+        font-weight: 700; 
       }
 
-      /* 滾動動畫樣式 (如果需要可保留) */
+      /* 滾動動畫樣式 */
       .reveal {
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+        transform: translateY(40px); /* 稍微增加向上滑動的距離 */
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1); /* 使用 cubic-bezier 讓動畫更流暢 */
       }
       .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
       /* 內容區通用樣式 */
-      .content-section p, 
+       .content-section p, 
       .log-section p, .log-section li, 
       .reflection-card p, 
       .contact-section p, 
@@ -50,7 +51,7 @@
       .artifact-section p, 
       .deity-card p {
         line-height: 1.8;
-        font-size: 1.125rem;
+        font-size: 1.125rem; /* 18px */
       }
        .contact-section strong {
         color: #2E1200;
@@ -62,12 +63,22 @@
         font-style: italic;
         color: #78716C; 
       }
+
+      /* 手機版導覽選單的額外樣式 */
+      #mobile-menu nav a {
+        display: block; 
+        padding: 0.75rem 1.5rem; 
+        text-align: center; 
+        border-bottom: 1px solid rgba(234, 215, 176, 0.15); 
+      }
+      #mobile-menu nav a:last-child {
+        border-bottom: none; 
+      }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
     <header
-      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow transition-transform duration-300"
-    >
+      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300" >
       <div
         class="max-w-7xl mx-auto flex items-center justify-between px-6"
         style="height: 130px"
@@ -75,17 +86,39 @@
         <div class="flex-1 flex items-center justify-start">
           <a href="index.html">
             <img
-              src="templeLogo.png"
+              src="templeLogo.png" 
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
               onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
             />
           </a>
         </div>
+
         <nav
-          class="space-x-8 text-xl hidden md:flex items-center" 
+          id="desktop-nav" 
+          class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="nav-link">首頁</a>
+          <a href="about.html" class="active-nav">關於本廟</a> 
+          <a href="deities.html" class="nav-link">神明介紹</a>
+          <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="artifacts.html" class="nav-link">文物導覽</a>
+          <a href="interview.html" class="nav-link">田野記錄</a>
+          <a href="reflection.html" class="nav-link">組員心得</a>
+          <a href="contact.html" class="nav-link">聯絡我們</a>
+        </nav>
+
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" aria-label="開啟選單" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"> <nav class="flex flex-col py-2 text-xl"> 
+          <a href="index.html" class="nav-link">首頁</a> 
           <a href="about.html" class="active-nav">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
@@ -99,15 +132,11 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200]">
-          關於本廟
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200] reveal"> 關於本廟
         </h1>
 
-        <div class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg content-section">
-          
-          <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
-              起源與沿革
+        <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl content-section reveal" style="transition-delay: 100ms;"> <section class="reveal" style="transition-delay: 200ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"> 起源與沿革
             </h2>
             <p>
               【請在此處填寫詳細的廟宇起源與歷史背景，例如：安西遷台、香爐分靈的故事...】
@@ -117,17 +146,28 @@
             </p>
           </section>
 
-          <section class="mt-12">
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+          <section class="mt-12 reveal" style="transition-delay: 300ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
               建築特色
             </h2>
             <p>
               【請在此處描述建築特色，例如：金色主體、細緻雕刻、三性分廟的特殊格局...】
             </p>
+            <div class="my-8 flex justify-center reveal" style="transition-delay: 400ms;">
+              <img 
+                src="https://placehold.co/600x400/cccccc/5A1E06?text=建築特色示意圖" 
+                alt="建築特色示意圖" 
+                class="rounded-lg shadow-md object-cover max-w-full h-auto"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=圖片載入失敗';"
+              >
+            </div>
+            <p>
+              【可以繼續描述更多建築細節，或對圖片進行說明...】
+            </p>
           </section>
 
-          <section class="mt-12">
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+          <section class="mt-12 reveal" style="transition-delay: 500ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
               組織與輪值
             </h2>
             <p>
@@ -144,41 +184,69 @@
     </footer>
     
     <script>
-      // 【修改】增加一個標誌來確保腳本只初始化一次
-      if (typeof window.aboutPageScrollHandlerInitialized === 'undefined') {
-        window.aboutPageScrollHandlerInitialized = true; // 設定標誌
+      (function() {
+        if (window.pageScriptInitialized_about) {
+          return;
+        }
+        window.pageScriptInitialized_about = true;
 
         let lastScrollTop = 0;
         const header = document.querySelector("header");
-        // const headerHeight = header.offsetHeight; // 移到 load 事件後確保正確獲取
-
+      
         function handleScroll() {
           window.requestAnimationFrame(() => {
               const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              // headerHeight 應該在 handleScroll 函數外部或 window load 時定義一次
-              // 或者直接在每次滾動時獲取，如果 header 高度可能動態變化
               const currentHeaderHeight = header ? header.offsetHeight : 0; 
-              
-              if (header) { // 確保 header 存在
+              if (header) {
                 if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
-                  header.classList.add("translate-y-[-100%]");
+                header.classList.add("translate-y-[-100%]");
                 } else {
-                  header.classList.remove("translate-y-[-100%]");
+                header.classList.remove("translate-y-[-100%]");
                 }
               }
               lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
           });
         }
-        
+      
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
         window.addEventListener('load', () => {
-          if (header) { // 確保 header 元素存在才綁定事件
-            // let initialHeaderHeight = header.offsetHeight; // 可在此處獲取初始高度
+          if (header) {
             window.addEventListener("scroll", handleScroll, { passive: true });
-          } else {
-            console.error("Header element not found for scroll handler in about.html.");
+          }
+
+          if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', (event) => {
+              event.stopPropagation(); // 防止事件冒泡
+              mobileMenu.classList.toggle('hidden');
+            });
+            // 點擊選單外部區域關閉選單 (可選)
+            // document.addEventListener('click', (event) => {
+            //   if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+            //     mobileMenu.classList.add('hidden');
+            //   }
+            // });
           }
         });
-      }
+
+        const revealElements = document.querySelectorAll(".reveal");
+        if (revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target); // 動畫只觸發一次
+                }
+            });
+            }, {
+            threshold: 0.15 // 調整觸發閾值
+            });
+            revealElements.forEach(element => {
+            revealObserver.observe(element);
+            });
+        }
+      })();
     </script>
   </body>
 </html>

@@ -17,21 +17,12 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
-      .log-section p, .log-section li {
-        line-height: 1.8;
-        font-size: 1.125rem;
-      }
-      .log-section blockquote {
-        border-left: 4px solid #FBBF24; /* amber-400 */
-        padding-left: 1rem;
-        margin: 1.5rem 0;
-        font-style: italic;
-        color: #78716C; /* stone-500 */
-      }
-      /* 【最終版】導覽列樣式 */
+      
+      /* 導覽列樣式 */
       .nav-link {
         color: #ead7b0; 
         transition: color 0.3s ease; 
+        font-weight: 500; 
       }
       .nav-link:hover {
         color: #FFFFFF; 
@@ -40,11 +31,54 @@
         color: #FFFFFF; 
         font-weight: 700; 
       }
+
+      /* 滾動動畫樣式 */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* 內容區通用樣式 */
+      .content-section p, 
+      .log-section p, .log-section li, /* 【新增】log-section 的 p 和 li 通用樣式 */
+      .reflection-card p, 
+      .contact-section p, 
+      .activity-section p, 
+      .artifact-section p, 
+      .deity-card p {
+        line-height: 1.8;
+        font-size: 1.125rem; /* 18px */
+      }
+       .contact-section strong {
+        color: #2E1200;
+       }
+       .log-section blockquote { /* 【保留】interview.html 特有的 blockquote 樣式 */
+        border-left: 4px solid #FBBF24; 
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #78716C; 
+      }
+
+      /* 手機版導覽選單的額外樣式 */
+      #mobile-menu nav a {
+        display: block; 
+        padding: 0.75rem 1.5rem; 
+        text-align: center; 
+        border-bottom: 1px solid rgba(234, 215, 176, 0.15); 
+      }
+      #mobile-menu nav a:last-child {
+        border-bottom: none; 
+      }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
     <header
-      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow transition-transform duration-300"
+      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300"
     >
       <div
         class="max-w-7xl mx-auto flex items-center justify-between px-6"
@@ -53,22 +87,44 @@
         <div class="flex-1 flex items-center justify-start">
           <a href="index.html">
             <img
-              src="templeLogo.png"
+              src="templeLogo.png" 
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
             />
           </a>
         </div>
+
         <nav
-          class="space-x-8 text-xl hidden md:flex items-center" 
-          style="color: #ead7b0"
+          id="desktop-nav" 
+          class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="nav-link">首頁</a>
+          <a href="about.html" class="nav-link">關於本廟</a> 
+          <a href="deities.html" class="nav-link">神明介紹</a> 
+          <a href="culture.html" class="nav-link">信仰活動</a> 
+          <a href="artifacts.html" class="nav-link">文物導覽</a> 
+          <a href="interview.html" class="active-nav">田野記錄</a> <a href="reflection.html" class="nav-link">組員心得</a>
+          <a href="contact.html" class="nav-link">聯絡我們</a>
+        </nav>
+
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" aria-label="開啟選單" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg">
+        <nav class="flex flex-col py-2 text-xl"> 
+          <a href="index.html" class="nav-link">首頁</a> 
           <a href="about.html" class="nav-link">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
           <a href="artifacts.html" class="nav-link">文物導覽</a>
-          <a href="interview.html" class="active-nav">田野記錄</a> 
+          <a href="interview.html" class="active-nav">田野記錄</a>
           <a href="reflection.html" class="nav-link">組員心得</a>
           <a href="contact.html" class="nav-link">聯絡我們</a>
         </nav>
@@ -77,52 +133,53 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200]">
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200] reveal">
           田野記錄
         </h1>
 
-        <div class="bg-stone-100 p-8 lg:p-12 rounded-lg shadow-lg space-y-12 log-section">
-
-          <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+        <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl space-y-12 log-section reveal" style="transition-delay: 100ms;"> <section class="reveal" style="transition-delay: 200ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
               主委訪談摘要
             </h2>
-            <blockquote>
+            <blockquote class="reveal" style="transition-delay: 250ms;">
               【您可以在此放上一段印象深刻的訪談引言...】
             </blockquote>
-            <p>
+            <p class="reveal" style="transition-delay: 300ms;">
               【請在此處摘要主委訪談的重點內容，可以分段敘述，例如談及廟宇的歷史、未來發展或社區連結等議題...】
             </p>
           </section>
 
-          <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+          <section class="reveal" style="transition-delay: 350ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
               志工導覽重點
             </h2>
-            <p>
+            <p class="reveal" style="transition-delay: 400ms;">
               【請在此處整理志工導覽時說明的重點，可以用條列式或段落式呈現。】
             </p>
-            <ul class="list-disc list-inside mt-4 space-y-2">
+            <ul class="list-disc list-inside mt-4 space-y-2 reveal" style="transition-delay: 450ms;">
               <li>重點一：【例如志工對特定文物的解說...】</li>
               <li>重點二：【例如志工分享的在地小故事...】</li>
               <li>重點三：【例如志工提到的特殊參拜方式...】</li>
             </ul>
           </section>
           
-          <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+          <section class="reveal" style="transition-delay: 500ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
               組員觀察紀錄
             </h2>
-            <p>
+            <p class="reveal" style="transition-delay: 550ms;">
               【請在此處描述組員們在田野現場的觀察，例如信眾的互動、廟宇的氛圍、光影的變化、拍攝時的情境等等...】
             </p>
+            <div class="my-8 flex justify-center reveal" style="transition-delay: 600ms;">
+                <img src="https://placehold.co/1200x600/cccccc/2E1200?text=田野調查現場照片" alt="田野觀察" class="rounded-lg shadow-md w-full object-cover max-h-96" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/E2E8F0/4A5568?text=圖片載入失敗';">
+             </div>
           </section>
 
-          <section>
-            <h2 class="text-3xl font-bold mb-4 text-[#2E1200] border-b-2 border-yellow-800 pb-2">
+          <section class="reveal" style="transition-delay: 650ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
               訪談中遇到的挑戰
             </h2>
-            <p>
+            <p class="reveal" style="transition-delay: 700ms;">
               【這是一個很棒的反思環節。請在此記錄訪談過程中遇到的挑戰，例如語言隔閡（台語）、受訪者答非所問、或現場環境的干擾等，以及您們如何應對。】
             </p>
           </section>
@@ -136,24 +193,63 @@
     </footer>
     
     <script>
-      let lastScrollTop = 0;
-      const header = document.querySelector("header");
-      const headerHeight = header.offsetHeight;
-
-      window.addEventListener("scroll", () => {
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-          // 向下滑
-          header.classList.add("translate-y-[-100%]");
-        } else {
-          // 向上滑
-          header.classList.remove("translate-y-[-100%]");
+      (function() {
+        if (window.pageScriptInitialized_interview) { // 【修改】初始化標誌
+          return;
         }
+        window.pageScriptInitialized_interview = true; // 【修改】初始化標誌
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
+        let lastScrollTop = 0;
+        const header = document.querySelector("header");
+      
+        function handleScroll() {
+          window.requestAnimationFrame(() => {
+              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              const currentHeaderHeight = header ? header.offsetHeight : 0; 
+              if (header) {
+                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+                header.classList.add("translate-y-[-100%]");
+                } else {
+                header.classList.remove("translate-y-[-100%]");
+                }
+              }
+              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+          });
+        }
+      
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        window.addEventListener('load', () => {
+          if (header) {
+            window.addEventListener("scroll", handleScroll, { passive: true });
+          }
+
+          if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', (event) => {
+              event.stopPropagation();
+              mobileMenu.classList.toggle('hidden');
+            });
+          }
+        });
+
+        const revealElements = document.querySelectorAll(".reveal");
+        if (revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+                }
+            });
+            }, {
+            threshold: 0.15 
+            });
+            revealElements.forEach(element => {
+            revealObserver.observe(element);
+            });
+        }
+      })();
     </script>
   </body>
 </html>
