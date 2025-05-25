@@ -17,26 +17,21 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
-      .content-section p {
-        margin-bottom: 1.5rem;
-        line-height: 1.8;
-        font-size: 1.125rem;
-      }
-      /* 【最新最終版】導覽列樣式 */
+      /* 導覽列樣式 */
       .nav-link {
         color: #ead7b0; 
         transition: color 0.3s ease; 
-        font-weight: 500; /* Noto Serif TC 的 normal weight 是 400 或 500，這裡用500確保與粗體有區別 */
+        font-weight: 500; /* 正常字重 */
       }
       .nav-link:hover {
         color: #FFFFFF; 
       }
       .active-nav {
         color: #FFFFFF; 
-        font-weight: 700; /* Tailwind's font-bold is 700 */
+        font-weight: 700; /* 粗體 */
       }
 
-      /* 滾動動畫樣式 (如果其他頁面也需要，這個可以保留) */
+      /* 滾動動畫樣式 (如果需要可保留) */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -46,7 +41,17 @@
         opacity: 1;
         transform: translateY(0);
       }
-      /* 其他頁面共用的內容區樣式 (可以按需保留或調整) */
+      /* 內容區通用樣式 */
+      .content-section p, 
+      .log-section p, .log-section li, 
+      .reflection-card p, 
+      .contact-section p, 
+      .activity-section p, 
+      .artifact-section p, 
+      .deity-card p {
+        line-height: 1.8;
+        font-size: 1.125rem;
+      }
        .contact-section strong {
         color: #2E1200;
        }
@@ -73,12 +78,12 @@
               src="templeLogo.png"
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
             />
           </a>
         </div>
         <nav
           class="space-x-8 text-xl hidden md:flex items-center" 
-          style="color: #ead7b0" /* 預設文字顏色由 .nav-link 控制 */
         >
           <a href="index.html" class="nav-link">首頁</a>
           <a href="about.html" class="active-nav">關於本廟</a>
@@ -139,22 +144,41 @@
     </footer>
     
     <script>
-      let lastScrollTop = 0;
-      const header = document.querySelector("header");
-      const headerHeight = header.offsetHeight;
+      // 【修改】增加一個標誌來確保腳本只初始化一次
+      if (typeof window.aboutPageScrollHandlerInitialized === 'undefined') {
+        window.aboutPageScrollHandlerInitialized = true; // 設定標誌
 
-      window.addEventListener("scroll", () => {
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
+        let lastScrollTop = 0;
+        const header = document.querySelector("header");
+        // const headerHeight = header.offsetHeight; // 移到 load 事件後確保正確獲取
 
-        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-          header.classList.add("translate-y-[-100%]");
-        } else {
-          header.classList.remove("translate-y-[-100%]");
+        function handleScroll() {
+          window.requestAnimationFrame(() => {
+              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              // headerHeight 應該在 handleScroll 函數外部或 window load 時定義一次
+              // 或者直接在每次滾動時獲取，如果 header 高度可能動態變化
+              const currentHeaderHeight = header ? header.offsetHeight : 0; 
+              
+              if (header) { // 確保 header 存在
+                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+                  header.classList.add("translate-y-[-100%]");
+                } else {
+                  header.classList.remove("translate-y-[-100%]");
+                }
+              }
+              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+          });
         }
-
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
+        
+        window.addEventListener('load', () => {
+          if (header) { // 確保 header 元素存在才綁定事件
+            // let initialHeaderHeight = header.offsetHeight; // 可在此處獲取初始高度
+            window.addEventListener("scroll", handleScroll, { passive: true });
+          } else {
+            console.error("Header element not found for scroll handler in about.html.");
+          }
+        });
+      }
     </script>
   </body>
 </html>

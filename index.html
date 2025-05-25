@@ -16,25 +16,13 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
-        scroll-behavior: smooth; 
       }
       
-      /* 【背景圖樣式】 */
-      body {
-        /* 疊加一層 60% 透明度的白色漸層，讓文字更清晰 */
-        background-image: 
-          linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
-          url('background.png'); /* 請將 'background.png' 換成您的圖片路徑 */
-        
-        background-size: cover; 
-        background-attachment: fixed; 
-        background-position: center; 
-      }
-
-      /* 【導覽列樣式】 */
+      /* 導覽列樣式 */
       .nav-link {
         color: #ead7b0; 
         transition: color 0.3s ease; 
+        font-weight: 500; 
       }
       .nav-link:hover {
         color: #FFFFFF; 
@@ -44,7 +32,7 @@
         font-weight: 700; 
       }
 
-      /* 【滾動動畫樣式】 */
+      /* 滾動動畫樣式 */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -54,9 +42,41 @@
         opacity: 1;
         transform: translateY(0);
       }
+      /* 內容區通用樣式 */
+       .content-section p, 
+      .log-section p, .log-section li, 
+      .reflection-card p, 
+      .contact-section p, 
+      .activity-section p, 
+      .artifact-section p, 
+      .deity-card p {
+        line-height: 1.8;
+        font-size: 1.125rem; /* 18px */
+      }
+       .contact-section strong {
+        color: #2E1200;
+       }
+       .log-section blockquote {
+        border-left: 4px solid #FBBF24; 
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #78716C; 
+      }
+
+      /* 【新增】手機版導覽選單的額外樣式 */
+      /* 當手機選單展開時，讓連結垂直排列且樣式更適合點擊 */
+      .mobile-nav-active nav a {
+        display: block;
+        padding: 0.75rem 1.5rem; /* 增加點擊區域 */
+        border-bottom: 1px solid rgba(234, 215, 176, 0.2); /* 分隔線 */
+      }
+      .mobile-nav-active nav a:last-child {
+        border-bottom: none; /* 最後一個連結無分隔線 */
+      }
     </style>
   </head>
-  <body class="text-[#5A1E06] min-h-screen">
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
     <header
       class="bg-[#2E1200] fixed w-full top-0 z-50 shadow transition-transform duration-300"
     >
@@ -70,13 +90,35 @@
               src="templeLogo.png"
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
             />
           </a>
         </div>
+
         <nav
-          class="space-x-8 text-xl hidden md:flex items-center" 
-          style="color: #ead7b0"
+          id="desktop-nav" class="space-x-8 text-xl hidden md:flex items-center"
         >
+          <a href="index.html" class="active-nav">首頁</a>
+          <a href="about.html" class="nav-link">關於本廟</a>
+          <a href="deities.html" class="nav-link">神明介紹</a>
+          <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="artifacts.html" class="nav-link">文物導覽</a>
+          <a href="interview.html" class="nav-link">田野記錄</a>
+          <a href="reflection.html" class="nav-link">組員心得</a>
+          <a href="contact.html" class="nav-link">聯絡我們</a>
+        </nav>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-[#EAD7B0] focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200] absolute w-full top-[130px] left-0 shadow-lg mobile-nav-active">
+        <nav class="flex flex-col items-center py-4">
           <a href="index.html" class="active-nav">首頁</a>
           <a href="about.html" class="nav-link">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
@@ -95,11 +137,12 @@
             class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 px-6"
         >
             <div class="flex justify-center items-start reveal">
-              <div class="rounded-xl shadow-lg overflow-hidden">
+              <div class="rounded-xl shadow-lg overflow-hidden border-4 border-yellow-800">
                 <img
                 src="templeImage.jpg"
                 alt="木柵集應廟主視覺"
                 class="w-full max-h-[700px] object-cover"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x700/cccccc/5A1E06?text=廟宇主視覺';"
                 />
               </div>
             </div>
@@ -130,14 +173,14 @@
             >
             <a
                 href="about.html"
-                class="block bg-stone-50/80 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+                class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
             >
                 <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">關於本廟</h4>
                 <p class="text-[#5A1E06]">廟宇的起源、歷史沿革與建築特色。</p>
             </a>
             <a
                 href="deities.html"
-                class="block bg-stone-50/80 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+                class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
                 style="transition-delay: 100ms"
             >
                 <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">神明介紹</h4>
@@ -145,7 +188,7 @@
             </a>
             <a
                 href="culture.html"
-                class="block bg-stone-50/80 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+                class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
                 style="transition-delay: 200ms"
             >
                 <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">信仰活動</h4>
@@ -155,7 +198,7 @@
         </div>
         </section>
 
-        <section class="bg-white/70 backdrop-blur-sm py-20">
+        <section class="bg-white/80 backdrop-blur-sm py-20">
         <div class="max-w-7xl mx-auto px-6">
             <h3 class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal">
             專題亮點
@@ -164,7 +207,7 @@
             <div class="text-center reveal">
                 <a href="artifacts.html" class="block group">
                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=百年香爐" alt="百年香爐" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <img src="https://placehold.co/800x600/cccccc/2E1200?text=百年香爐" alt="百年香爐" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">渡海來台的香爐</h4>
                 <p class="text-[#5A1E06]">見證兩百年信仰傳承的起點，承載著家族與地方的共同記憶。</p>
@@ -173,7 +216,7 @@
             <div class="text-center reveal" style="transition-delay: 100ms">
                 <a href="culture.html" class="block group">
                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=文昌祈福" alt="文昌祈福" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <img src="https://placehold.co/800x600/cccccc/2E1200?text=文昌祈福" alt="文昌祈福" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">獨特的文昌祈福</h4>
                 <p class="text-[#5A1E06]">不只是拜文昌，還有摸魁星筆、寫祈福牆等特殊的祈願儀式。</p>
@@ -182,7 +225,7 @@
             <div class="text-center reveal" style="transition-delay: 200ms">
                 <a href="deities.html" class="block group">
                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://via.placeholder.com/800x600/cccccc/2E1200?text=申國夫人" alt="申國夫人" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <img src="https://placehold.co/800x600/cccccc/2E1200?text=申國夫人" alt="申國夫人" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">走在陣前的夫人</h4>
                 <p class="text-[#5A1E06]">在遶境隊伍中，申國夫人為何總是走在保儀尊王的前面？</p>
@@ -193,25 +236,51 @@
         </section>
     </main>
 
-    <footer class="bg-[#2E1200] text-white text-center py-6">
+    <footer class="bg-[#2E1200] text-white text-center py-6 mt-8">
       <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
     </footer>
 
     <script>
+      // 導覽列滑動隱藏效果
       let lastScrollTop = 0;
       const header = document.querySelector("header");
-      const headerHeight = header.offsetHeight;
-      window.addEventListener("scroll", () => {
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-          header.classList.add("translate-y-[-100%]");
-        } else {
-          header.classList.remove("translate-y-[-100%]");
+      
+      function handleScroll() {
+        window.requestAnimationFrame(() => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const currentHeaderHeight = header ? header.offsetHeight : 0; 
+            if (header) {
+              if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+              header.classList.add("translate-y-[-100%]");
+              } else {
+              header.classList.remove("translate-y-[-100%]");
+              }
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+      }
+      
+      window.addEventListener('load', () => {
+        if (header) {
+          window.addEventListener("scroll", handleScroll, { passive: true });
         }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        // 【新增】漢堡選單功能
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const desktopNav = document.getElementById('desktop-nav'); // 取得桌面導覽列
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 如果需要複製桌面導覽連結到手機選單 (如果手機選單內容是空的)
+            // if (mobileMenu.querySelector('nav').children.length === 0 && desktopNav) {
+            //    mobileMenu.querySelector('nav').innerHTML = desktopNav.innerHTML;
+            // }
+          });
+        }
       });
 
+      // 滾動顯示動畫效果
       const revealElements = document.querySelectorAll(".reveal");
       const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
