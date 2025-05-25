@@ -18,20 +18,20 @@
         font-family: "Noto Serif TC", serif;
       }
       
-      /* 導覽列樣式 */
+      /* 導覽列樣式 - 確保與其他頁面一致 */
       .nav-link {
         color: #ead7b0; 
         transition: color 0.3s ease; 
-        font-weight: 500; 
+        font-weight: 500; /* 正常字重 */
       }
       .nav-link:hover {
         color: #FFFFFF; 
       }
       .active-nav {
         color: #FFFFFF; 
-        font-weight: 700; 
+        font-weight: 700; /* 粗體 */
       }
-      /* 【新增/修改】明確 active-nav 的 hover 狀態，確保其樣式不變 */
+      /* 確保 active-nav 在 hover 時樣式不變 (維持白色粗體) */
       .active-nav:hover {
         color: #FFFFFF;
         font-weight: 700;
@@ -40,7 +40,7 @@
       /* 滾動動畫樣式 */
       .reveal {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(30px); /* 保持與其他頁面一致的動畫參數 */
         transition: opacity 0.8s ease-out, transform 0.6s ease-out;
       }
       .reveal.visible {
@@ -69,13 +69,15 @@
         color: #78716C; 
       }
 
-      /* 手機版導覽選單的額外樣式 */
-      .mobile-nav-active nav a { /* 這個 class 是加在 #mobile-menu 上的 */
+      /* 手機版導覽選單的額外樣式 - 確保與其他頁面一致 */
+      /* #mobile-menu.mobile-nav-active nav a 也可以直接用 #mobile-menu nav a */
+      #mobile-menu nav a { /* 【修正】直接針對 #mobile-menu 內的 a 標籤設定樣式，移除 .mobile-nav-active 的依賴，以簡化並確保一致性 */
         display: block;
         padding: 0.75rem 1.5rem; 
         border-bottom: 1px solid rgba(234, 215, 176, 0.2); 
+        text-align: center; /* 【新增】確保手機選單文字置中 */
       }
-      .mobile-nav-active nav a:last-child {
+      #mobile-menu nav a:last-child {
         border-bottom: none; 
       }
     </style>
@@ -120,7 +122,9 @@
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg mobile-nav-active"> <nav class="flex flex-col items-center py-2 text-xl"> <a href="index.html" class="active-nav">首頁</a>
+      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg">
+        <nav class="flex flex-col items-center py-2 text-xl"> 
+          <a href="index.html" class="active-nav">首頁</a>
           <a href="about.html" class="nav-link">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
@@ -242,7 +246,6 @@
     </footer>
 
     <script>
-      // 【修改】將腳本包裹在 IIFE 中，並使用初始化標誌
       (function() {
         if (window.pageScriptInitialized_index) { return; }
         window.pageScriptInitialized_index = true;
@@ -267,22 +270,21 @@
         
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        // const desktopNav = document.getElementById('desktop-nav'); // 如果 JS 中沒有用到，可以移除
 
         window.addEventListener('load', () => {
           if (header) {
             window.addEventListener("scroll", handleScroll, { passive: true });
           }
           if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', (event) => { // 【新增】傳入 event 參數
-              event.stopPropagation(); // 【新增】防止事件冒泡
+            mobileMenuButton.addEventListener('click', (event) => { 
+              event.stopPropagation(); 
               mobileMenu.classList.toggle('hidden');
             });
           }
         });
 
         const revealElements = document.querySelectorAll(".reveal");
-        if (revealElements.length > 0) { // 【新增】檢查是否存在 .reveal 元素
+        if (revealElements.length > 0) { 
             const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
