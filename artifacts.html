@@ -48,7 +48,7 @@
       .reflection-card p, 
       .contact-section p, 
       .activity-section p, 
-      .artifact-section p, /* 【新增】artifact-section p 的通用樣式 */
+      .artifact-section p, 
       .deity-card p {
         line-height: 1.8;
         font-size: 1.125rem; /* 18px */
@@ -103,7 +103,8 @@
           <a href="about.html" class="nav-link">關於本廟</a> 
           <a href="deities.html" class="nav-link">神明介紹</a> 
           <a href="culture.html" class="nav-link">信仰活動</a> 
-          <a href="artifacts.html" class="active-nav">文物導覽</a> <a href="interview.html" class="nav-link">田野記錄</a>
+          <a href="artifacts.html" class="active-nav">文物導覽</a> 
+          <a href="interview.html" class="nav-link">田野記錄</a>
           <a href="reflection.html" class="nav-link">組員心得</a>
           <a href="contact.html" class="nav-link">聯絡我們</a>
         </nav>
@@ -144,7 +145,8 @@
               <img src="https://placehold.co/800x600/cccccc/2E1200?text=香爐照片" alt="香爐" class="rounded-lg shadow-md w-full reveal" style="transition-delay: 150ms;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';">
               <div class="reveal" style="transition-delay: 200ms;">
                 <p>
-                  【請在此處詳細描述香爐的由來，例如它是如何由張氏祖先從大陸帶來台灣，以及它在廟中的象徵意義...】
+                  木柵集應廟的香爐承載著悠久的歷史。根據廟方所述，在高、林、張三姓分家時，張姓人士抽到的便是這個歷史最悠久的香爐。這個香爐不僅是信仰的傳承，也是張氏家族與木柵地方共同記憶的見證。
+                  【您可以補充更多關於香爐材質、樣式或相關故事的細節...】
                 </p>
               </div>
             </div>
@@ -156,12 +158,13 @@
             <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">廟內匾額</h2>
              <div class="grid md:grid-cols-2 gap-8 items-center">
               <div class="reveal" style="transition-delay: 300ms;">
-                <p class="font-semibold">例如：「澤被東南」匾</p>
+                <p class="font-semibold">「澤被東南」匾</p>
                 <p>
-                  【請在此處介紹廟內重要的匾額，可以分別說明其贈與者、年代、以及匾額上文字的意涵與相關故事...】
+                  廟中懸掛的四大匾額之一「澤被東南」，是為了紀念張姓先祖張達京（亦有記載為張達兵、張李成）等英雄在中法戰爭中的功績。訪談中我們了解到，雖然歷史課本大多著重敘述劉銘傳的事蹟，但張氏先祖的貢獻同樣不可磨滅，此匾額即為當時清朝政府為表彰其功績所頒發。
+                  【您可以繼續介紹其他匾額，或補充「澤被東南」匾的更多細節，如年代、材質、書法風格等...】
                 </p>
               </div>
-               <img src="https://placehold.co/800x600/cccccc/2E1200?text=匾額照片" alt="匾額" class="rounded-lg shadow-md w-full reveal" style="transition-delay: 350ms;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';">
+               <img src="https://placehold.co/800x600/cccccc/2E1200?text=匾額照片" alt="匾額「澤被東南」" class="rounded-lg shadow-md w-full reveal" style="transition-delay: 350ms;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';">
             </div>
           </div>
         </section>
@@ -196,10 +199,10 @@
     
     <script>
       (function() {
-        if (window.pageScriptInitialized_artifacts) { // 【修改】初始化標誌
+        if (window.pageScriptInitialized_artifacts) { 
           return;
         }
-        window.pageScriptInitialized_artifacts = true; // 【修改】初始化標誌
+        window.pageScriptInitialized_artifacts = true; 
 
         let lastScrollTop = 0;
         const header = document.querySelector("header");

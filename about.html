@@ -35,8 +35,8 @@
       /* 滾動動畫樣式 */
       .reveal {
         opacity: 0;
-        transform: translateY(40px); /* 稍微增加向上滑動的距離 */
-        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1); /* 使用 cubic-bezier 讓動畫更流暢 */
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
       .reveal.visible {
         opacity: 1;
@@ -78,7 +78,8 @@
   </head>
   <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
     <header
-      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300" >
+      class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300"
+    >
       <div
         class="max-w-7xl mx-auto flex items-center justify-between px-6"
         style="height: 130px"
@@ -117,7 +118,8 @@
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"> <nav class="flex flex-col py-2 text-xl"> 
+      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"> 
+        <nav class="flex flex-col py-2 text-xl"> 
           <a href="index.html" class="nav-link">首頁</a> 
           <a href="about.html" class="active-nav">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
@@ -132,17 +134,21 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200] reveal"> 關於本廟
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200] reveal"> 
+          關於本廟
         </h1>
 
-        <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl content-section reveal" style="transition-delay: 100ms;"> <section class="reveal" style="transition-delay: 200ms;">
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"> 起源與沿革
+        <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl content-section reveal" style="transition-delay: 100ms;"> 
+          <section class="reveal" style="transition-delay: 200ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"> 
+              起源與沿革
             </h2>
             <p>
-              【請在此處填寫詳細的廟宇起源與歷史背景，例如：安西遷台、香爐分靈的故事...】
+              木柵集應廟的廟誌中，記錄著張氏祖先來台的歷史以及保儀尊王保佑其祖先平安渡台的事蹟。
+              根據主委所述，當時是高、林、張三姓人家一同奉祀保儀尊王與申國夫人。但後來因故分家，透過抽籤分配原有的神尊與法器，其中張姓人士抽到的是歷史最悠久的香爐。此後，三姓人士各自請藝師雕塑其餘缺乏之神像，並在不同地方建立集應廟進行祭祀。這也是木柵集應廟擁有最古老香爐的由來。
             </p>
             <p>
-              【建立年代：根據您的資料，可在此詳述清德宗光緒甲午年（1894年）的建廟過程...】
+              建立年代：清德宗光緒甲午年（西元1894年）。【您可以在此處補充更多建廟過程的細節...】
             </p>
           </section>
 
@@ -218,15 +224,9 @@
 
           if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', (event) => {
-              event.stopPropagation(); // 防止事件冒泡
+              event.stopPropagation(); 
               mobileMenu.classList.toggle('hidden');
             });
-            // 點擊選單外部區域關閉選單 (可選)
-            // document.addEventListener('click', (event) => {
-            //   if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-            //     mobileMenu.classList.add('hidden');
-            //   }
-            // });
           }
         });
 
@@ -236,11 +236,11 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
-                observer.unobserve(entry.target); // 動畫只觸發一次
+                observer.unobserve(entry.target); 
                 }
             });
             }, {
-            threshold: 0.15 // 調整觸發閾值
+            threshold: 0.15 
             });
             revealElements.forEach(element => {
             revealObserver.observe(element);

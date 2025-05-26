@@ -49,7 +49,7 @@
       .contact-section p, 
       .activity-section p, 
       .artifact-section p, 
-      .deity-card p { /* 【新增】deity-card p 的通用樣式 */
+      .deity-card p { 
         line-height: 1.8;
         font-size: 1.125rem; /* 18px */
       }
@@ -101,7 +101,8 @@
         >
           <a href="index.html" class="nav-link">首頁</a>
           <a href="about.html" class="nav-link">關於本廟</a> 
-          <a href="deities.html" class="active-nav">神明介紹</a> <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="deities.html" class="active-nav">神明介紹</a> 
+          <a href="culture.html" class="nav-link">信仰活動</a>
           <a href="artifacts.html" class="nav-link">文物導覽</a>
           <a href="interview.html" class="nav-link">田野記錄</a>
           <a href="reflection.html" class="nav-link">組員心得</a>
@@ -139,7 +140,8 @@
 
         <section class="mb-16 reveal" style="transition-delay: 100ms;">
           <h2 class="text-3xl font-bold text-center mb-8 text-[#2E1200]">主祀神明</h2>
-          <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden md:flex md:items-center deity-card"> <div class="md:w-1/2">
+          <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden md:flex md:items-center deity-card"> 
+            <div class="md:w-1/2">
               <img src="https://placehold.co/800x600/cccccc/2E1200?text=保儀尊王+神像" alt="保儀尊王" class="w-full h-full object-cover">
             </div>
             <div class="p-8 md:w-1/2">
@@ -156,15 +158,20 @@
           <h2 class="text-3xl font-bold text-center mb-8 text-[#2E1200]">配祀神明</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             
-            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card reveal" style="transition-delay: 300ms;"> <img src="https://placehold.co/600x400/cccccc/2E1200?text=申國夫人+神像" alt="申國夫人" class="w-full h-64 object-cover">
+            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card reveal" style="transition-delay: 300ms;"> 
+              <img src="https://placehold.co/600x400/cccccc/2E1200?text=申國夫人+神像" alt="申國夫人" class="w-full h-64 object-cover">
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-2 text-[#2E1200]">申國夫人</h3>
                 <p class="font-semibold mb-3">職掌：【請填寫申國夫人的職掌】</p>
-                <p>【請在此處填寫關於申國夫人的信仰傳說，以及遶境時走在陣前的特殊排陣方式...】</p>
+                <p>
+                  木柵集應廟跟其他集應廟的不同處，就是在繞境出巡時，保儀尊王身旁的申國夫人會走在前面。申國夫人是保儀尊王最喜歡的妾之一，當初戰況糧食不足時，申國夫人把自己的肉割給士兵吃，所以讓她走在前面是表達對她的尊敬。
+                  【您可以補充更多關於申國夫人的信仰傳說...】
+                </p>
               </div>
             </div>
 
-            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card reveal" style="transition-delay: 400ms;"> <img src="https://placehold.co/600x400/cccccc/2E1200?text=文昌帝君+神像" alt="文昌帝君" class="w-full h-64 object-cover">
+            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card reveal" style="transition-delay: 400ms;"> 
+              <img src="https://placehold.co/600x400/cccccc/2E1200?text=文昌帝君+神像" alt="文昌帝君" class="w-full h-64 object-cover">
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-2 text-[#2E1200]">文昌帝君</h3>
                 <p class="font-semibold mb-3">職掌：【請填寫文昌帝君的職掌，如功名、學業等】</p>
@@ -172,7 +179,8 @@
               </div>
             </div>
 
-            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card md:col-span-2 reveal" style="transition-delay: 500ms;"> <div class="p-6">
+            <div class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card md:col-span-2 reveal" style="transition-delay: 500ms;"> 
+              <div class="p-6">
                 <h3 class="text-2xl font-bold mb-2 text-[#2E1200]">財神</h3>
                 <p class="font-semibold mb-3">職掌：【請填寫財神的職掌，如正財、偏財等】</p>
                 <p>【請在此處分別說明文財神、武財神、偏財神的信仰傳說與故事...】</p>
@@ -191,7 +199,6 @@
     
     <script>
       (function() {
-        // 【修改】確保每個頁面的初始化標誌是唯一的
         if (window.pageScriptInitialized_deities) { 
           return;
         }

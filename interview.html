@@ -44,7 +44,7 @@
       }
       /* 內容區通用樣式 */
       .content-section p, 
-      .log-section p, .log-section li, /* 【新增】log-section 的 p 和 li 通用樣式 */
+      .log-section p, .log-section li, 
       .reflection-card p, 
       .contact-section p, 
       .activity-section p, 
@@ -56,7 +56,7 @@
        .contact-section strong {
         color: #2E1200;
        }
-       .log-section blockquote { /* 【保留】interview.html 特有的 blockquote 樣式 */
+       .log-section blockquote { 
         border-left: 4px solid #FBBF24; 
         padding-left: 1rem;
         margin: 1.5rem 0;
@@ -104,7 +104,8 @@
           <a href="deities.html" class="nav-link">神明介紹</a> 
           <a href="culture.html" class="nav-link">信仰活動</a> 
           <a href="artifacts.html" class="nav-link">文物導覽</a> 
-          <a href="interview.html" class="active-nav">田野記錄</a> <a href="reflection.html" class="nav-link">組員心得</a>
+          <a href="interview.html" class="active-nav">田野記錄</a> 
+          <a href="reflection.html" class="nav-link">組員心得</a>
           <a href="contact.html" class="nav-link">聯絡我們</a>
         </nav>
 
@@ -137,7 +138,9 @@
           田野記錄
         </h1>
 
-        <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl space-y-12 log-section reveal" style="transition-delay: 100ms;"> <section class="reveal" style="transition-delay: 200ms;">
+        <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl space-y-12 log-section reveal" style="transition-delay: 100ms;">
+
+          <section class="reveal" style="transition-delay: 200ms;">
             <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
               主委訪談摘要
             </h2>
@@ -180,8 +183,28 @@
               訪談中遇到的挑戰
             </h2>
             <p class="reveal" style="transition-delay: 700ms;">
-              【這是一個很棒的反思環節。請在此記錄訪談過程中遇到的挑戰，例如語言隔閡（台語）、受訪者答非所問、或現場環境的干擾等，以及您們如何應對。】
+              廟方態度：打電話至廟方詢問訪談時間時，每個提出的時間廟方都說在忙，再三拜託才終於談好訪談時間。
             </p>
+            <p class="mt-4 reveal" style="transition-delay: 750ms;">
+              訪談文不對題：有時導覽義工給予我們的答覆不是我們想問的，文不對題，因此一個簡單的問題可能問很久。
+            </p>
+            <p class="mt-4 reveal" style="transition-delay: 800ms;">
+              我們訪談進行到一半，而受訪者臨時有事離開，導致我們許多問題無法獲得解答。事後我們反思該如何好好處理這件事，我們認為，若時間允許，應和廟方約時間，再次進行訪談。
+            </p>
+          </section>
+
+          <section class="mt-12 reveal" style="transition-delay: 850ms;">
+            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
+              待釐清問題與未來展望
+            </h2>
+            <p class="reveal" style="transition-delay: 900ms;">
+              在這次的田野調查過程中，我們也記錄下一些希望未來能有機會進一步探討的問題：
+            </p>
+            <ul class="list-disc list-inside mt-4 space-y-2 reveal" style="transition-delay: 950ms;">
+              <li>神像應該放置在哪一個廳與哪個方位？這通常是如何決定的？</li>
+              <li>蓋廟的流程中，是先建廟還是先請神？</li>
+              <li>我們注意到廟中懸掛了不少匾額，想了解這些匾額的來歷、贈送者以及它們背後所代表的意義。</li>
+            </ul>
           </section>
 
         </div>
@@ -194,10 +217,10 @@
     
     <script>
       (function() {
-        if (window.pageScriptInitialized_interview) { // 【修改】初始化標誌
+        if (window.pageScriptInitialized_interview) { 
           return;
         }
-        window.pageScriptInitialized_interview = true; // 【修改】初始化標誌
+        window.pageScriptInitialized_interview = true; 
 
         let lastScrollTop = 0;
         const header = document.querySelector("header");
