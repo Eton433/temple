@@ -16,24 +16,41 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
+       
       }
-      
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("background.png"); /* 放正確路徑 */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        opacity: 0.25; /* 可調整透明度 */
+        z-index: -1;
+        pointer-events: none;
+        filter: blur(2px); /* 加模糊感，讓圖案更柔和 */
+      }
+
       /* 導覽列樣式 - 確保與其他頁面一致 */
       .nav-link {
-        color: #ead7b0; 
-        transition: color 0.3s ease; 
+        color: #ead7b0;
+        transition: color 0.3s ease;
         font-weight: 500; /* 正常字重 */
       }
       .nav-link:hover {
-        color: #FFFFFF; 
+        color: #ffffff;
       }
       .active-nav {
-        color: #FFFFFF; 
+        color: #ffffff;
         font-weight: 700; /* 粗體 */
       }
       /* 確保 active-nav 在 hover 時樣式不變 (維持白色粗體) */
       .active-nav:hover {
-        color: #FFFFFF;
+        color: #ffffff;
         font-weight: 700;
       }
 
@@ -48,37 +65,39 @@
         transform: translateY(0);
       }
       /* 內容區通用樣式 */
-       .content-section p, 
-      .log-section p, .log-section li, 
-      .reflection-card p, 
-      .contact-section p, 
-      .activity-section p, 
-      .artifact-section p, 
+      .content-section p,
+      .log-section p,
+      .log-section li,
+      .reflection-card p,
+      .contact-section p,
+      .activity-section p,
+      .artifact-section p,
       .deity-card p {
         line-height: 1.8;
         font-size: 1.125rem; /* 18px */
       }
-       .contact-section strong {
-        color: #2E1200;
-       }
-       .log-section blockquote {
-        border-left: 4px solid #FBBF24; 
+      .contact-section strong {
+        color: #2e1200;
+      }
+      .log-section blockquote {
+        border-left: 4px solid #fbbf24;
         padding-left: 1rem;
         margin: 1.5rem 0;
         font-style: italic;
-        color: #78716C; 
+        color: #78716c;
       }
 
       /* 手機版導覽選單的額外樣式 - 確保與其他頁面一致 */
       /* #mobile-menu.mobile-nav-active nav a 也可以直接用 #mobile-menu nav a */
-      #mobile-menu nav a { /* 【修正】直接針對 #mobile-menu 內的 a 標籤設定樣式，移除 .mobile-nav-active 的依賴，以簡化並確保一致性 */
+      #mobile-menu nav a {
+        /* 【修正】直接針對 #mobile-menu 內的 a 標籤設定樣式，移除 .mobile-nav-active 的依賴，以簡化並確保一致性 */
         display: block;
-        padding: 0.75rem 1.5rem; 
-        border-bottom: 1px solid rgba(234, 215, 176, 0.2); 
+        padding: 0.75rem 1.5rem;
+        border-bottom: 1px solid rgba(234, 215, 176, 0.2);
         text-align: center; /* 【新增】確保手機選單文字置中 */
       }
       #mobile-menu nav a:last-child {
-        border-bottom: none; 
+        border-bottom: none;
       }
     </style>
   </head>
@@ -102,7 +121,8 @@
         </div>
 
         <nav
-          id="desktop-nav" class="space-x-8 text-xl hidden md:flex items-center"
+          id="desktop-nav"
+          class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="active-nav">首頁</a>
           <a href="about.html" class="nav-link">關於本廟</a>
@@ -115,15 +135,33 @@
         </nav>
 
         <div class="md:hidden">
-          <button id="mobile-menu-button" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors"> <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <button
+            id="mobile-menu-button"
+            class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
             </svg>
           </button>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg">
-        <nav class="flex flex-col items-center py-2 text-xl"> 
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"
+      >
+        <nav class="flex flex-col items-center py-2 text-xl">
           <a href="index.html" class="active-nav">首頁</a>
           <a href="about.html" class="nav-link">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
@@ -137,108 +175,140 @@
     </header>
 
     <main>
-        <section class="pt-[170px] pb-12">
+      <section class="pt-[170px] pb-12">
         <div
-            class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 px-6"
+          class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 px-6"
         >
-            <div class="flex justify-center items-start reveal">
-              <div class="rounded-xl shadow-lg overflow-hidden border-4 border-yellow-800">
-                <img
+          <div class="flex justify-center items-start reveal">
+            <div
+              class="rounded-xl shadow-lg overflow-hidden border-4 border-yellow-800"
+            >
+              <img
                 src="templeImage.jpg"
                 alt="木柵集應廟主視覺"
                 class="w-full max-h-[700px] object-cover"
                 onerror="this.onerror=null; this.src='https://placehold.co/800x700/cccccc/5A1E06?text=廟宇主視覺';"
-                />
-              </div>
+              />
             </div>
+          </div>
 
-            <div class="text-center lg:text-left flex flex-col justify-center reveal">
+          <div
+            class="text-center lg:text-left flex flex-col justify-center reveal"
+          >
             <h1 class="text-2xl font-bold text-[#5A1E06]">
-                國立政治大學・地方文史與田野調查
+              國立政治大學・地方文史與田野調查
             </h1>
             <h2 class="text-4xl font-extrabold my-4 text-[#2E1200]">
-                木柵集應廟・信仰探尋之路
+              木柵集應廟・信仰探尋之路
             </h2>
             <p class="text-lg leading-relaxed text-[#5A1E06]">
-                本網站為課程的期末成果展現。<br />
-                透過實地走訪、訪談與文獻整理，<br />
-                記錄我們在木柵集應廟的所見所聞與深刻體悟。
+              本網站為課程的期末成果展現。<br />
+              透過實地走訪、訪談與文獻整理，<br />
+              記錄我們在木柵集應廟的所見所聞與深刻體悟。
             </p>
-            </div>
+          </div>
         </div>
-        </section>
+      </section>
 
-        <section class="py-16">
+      <section class="py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <h3 class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal">
+          <h3
+            class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal"
+          >
             探索我們的發現
-            </h3>
-            <div
+          </h3>
+          <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
-            >
+          >
             <a
-                href="about.html"
-                class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+              href="about.html"
+              class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
             >
-                <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">關於本廟</h4>
-                <p class="text-[#5A1E06]">廟宇的起源、歷史沿革與建築特色。</p>
+              <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">關於本廟</h4>
+              <p class="text-[#5A1E06]">廟宇的起源、歷史沿革與建築特色。</p>
             </a>
             <a
-                href="deities.html"
-                class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
-                style="transition-delay: 100ms"
+              href="deities.html"
+              class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+              style="transition-delay: 100ms"
             >
-                <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">神明介紹</h4>
-                <p class="text-[#5A1E06]">深入認識保儀尊王與其他配祀神明。</p>
+              <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">神明介紹</h4>
+              <p class="text-[#5A1E06]">深入認識保儀尊王與其他配祀神明。</p>
             </a>
             <a
-                href="culture.html"
-                class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
-                style="transition-delay: 200ms"
+              href="culture.html"
+              class="block bg-stone-100/90 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal"
+              style="transition-delay: 200ms"
             >
-                <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">信仰活動</h4>
-                <p class="text-[#5A1E06]">探索文昌祈福、年度大事等文化實踐。</p>
+              <h4 class="text-2xl font-bold mb-3 text-[#2E1200]">信仰活動</h4>
+              <p class="text-[#5A1E06]">探索文昌祈福、年度大事等文化實踐。</p>
             </a>
-            </div>
+          </div>
         </div>
-        </section>
+      </section>
 
-        <section class="bg-white/80 backdrop-blur-sm py-20">
+      <section class="bg-white/80 backdrop-blur-sm py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <h3 class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal">
+          <h3
+            class="text-3xl font-bold text-center mb-12 text-[#2E1200] reveal"
+          >
             專題亮點
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="text-center reveal">
-                <a href="artifacts.html" class="block group">
+              <a href="artifacts.html" class="block group">
                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://placehold.co/800x600/cccccc/2E1200?text=百年香爐" alt="百年香爐" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img
+                    src="https://placehold.co/800x600/cccccc/2E1200?text=百年香爐"
+                    alt="百年香爐"
+                    class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
-                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">渡海來台的香爐</h4>
-                <p class="text-[#5A1E06]">見證兩百年信仰傳承的起點，承載著家族與地方的共同記憶。</p>
-                </a>
+                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">
+                  渡海來台的香爐
+                </h4>
+                <p class="text-[#5A1E06]">
+                  見證兩百年信仰傳承的起點，承載著家族與地方的共同記憶。
+                </p>
+              </a>
             </div>
             <div class="text-center reveal" style="transition-delay: 100ms">
-                <a href="culture.html" class="block group">
+              <a href="culture.html" class="block group">
                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://placehold.co/800x600/cccccc/2E1200?text=文昌祈福" alt="文昌祈福" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img
+                    src="https://placehold.co/800x600/cccccc/2E1200?text=文昌祈福"
+                    alt="文昌祈福"
+                    class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
-                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">獨特的文昌祈福</h4>
-                <p class="text-[#5A1E06]">不只是拜文昌，還有摸魁星筆、寫祈福牆等特殊的祈願儀式。</p>
-                </a>
+                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">
+                  獨特的文昌祈福
+                </h4>
+                <p class="text-[#5A1E06]">
+                  不只是拜文昌，還有摸魁星筆、寫祈福牆等特殊的祈願儀式。
+                </p>
+              </a>
             </div>
             <div class="text-center reveal" style="transition-delay: 200ms">
-                <a href="deities.html" class="block group">
+              <a href="deities.html" class="block group">
                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://placehold.co/800x600/cccccc/2E1200?text=申國夫人" alt="申國夫人" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img
+                    src="https://placehold.co/800x600/cccccc/2E1200?text=申國夫人"
+                    alt="申國夫人"
+                    class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
-                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">走在陣前的夫人</h4>
-                <p class="text-[#5A1E06]">在遶境隊伍中，申國夫人為何總是走在保儀尊王的前面？</p>
-                </a>
+                <h4 class="text-2xl font-bold mt-6 mb-2 text-[#2E1200]">
+                  走在陣前的夫人
+                </h4>
+                <p class="text-[#5A1E06]">
+                  在遶境隊伍中，申國夫人為何總是走在保儀尊王的前面？
+                </p>
+              </a>
             </div>
-            </div>
+          </div>
         </div>
-        </section>
+      </section>
     </main>
 
     <footer class="bg-[#2E1200] text-white text-center py-6 mt-8">
@@ -246,58 +316,67 @@
     </footer>
 
     <script>
-      (function() {
-        if (window.pageScriptInitialized_index) { return; }
+      (function () {
+        if (window.pageScriptInitialized_index) {
+          return;
+        }
         window.pageScriptInitialized_index = true;
 
         let lastScrollTop = 0;
         const header = document.querySelector("header");
-        
+
         function handleScroll() {
           window.requestAnimationFrame(() => {
-              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              const currentHeaderHeight = header ? header.offsetHeight : 0; 
-              if (header) {
-                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+            const scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+            const currentHeaderHeight = header ? header.offsetHeight : 0;
+            if (header) {
+              if (
+                scrollTop > lastScrollTop &&
+                scrollTop > currentHeaderHeight
+              ) {
                 header.classList.add("translate-y-[-100%]");
-                } else {
+              } else {
                 header.classList.remove("translate-y-[-100%]");
-                }
               }
-              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
           });
         }
-        
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        window.addEventListener('load', () => {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        window.addEventListener("load", () => {
           if (header) {
             window.addEventListener("scroll", handleScroll, { passive: true });
           }
           if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', (event) => { 
-              event.stopPropagation(); 
-              mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.addEventListener("click", (event) => {
+              event.stopPropagation();
+              mobileMenu.classList.toggle("hidden");
             });
           }
         });
 
         const revealElements = document.querySelectorAll(".reveal");
-        if (revealElements.length > 0) { 
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
+        if (revealElements.length > 0) {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
                 }
-            });
-            }, {
-            threshold: 0.1 
-            });
-            revealElements.forEach(element => {
+              });
+            },
+            {
+              threshold: 0.1,
+            }
+          );
+          revealElements.forEach((element) => {
             revealObserver.observe(element);
-            });
+          });
         }
       })();
     </script>
