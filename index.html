@@ -17,6 +17,21 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
+
+      body::before {
+        content: "";
+        background-image: url('background.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.2; /* 20% opacity for the image, adjust as needed */
+        position: fixed; 
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1; /* Place it behind the content */
+      }
       
       /* 導覽列樣式 - 確保與其他頁面一致 */
       .nav-link {
