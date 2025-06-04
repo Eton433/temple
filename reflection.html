@@ -74,6 +74,10 @@
       #mobile-menu nav a:last-child {
         border-bottom: none; 
       }
+  /* 讓導覽列在捲動時隱藏 */
+  .header-hidden {
+    transform: translateY(-100%);
+  }
     </style>
   </head>
   <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
@@ -208,9 +212,9 @@
               const currentHeaderHeight = header ? header.offsetHeight : 0; 
               if (header) {
                 if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
-                header.classList.add("translate-y-[-100%]");
+                header.classList.add("header-hidden");
                 } else {
-                header.classList.remove("translate-y-[-100%]");
+                header.classList.remove("header-hidden");
                 }
               }
               lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
