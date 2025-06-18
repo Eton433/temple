@@ -16,67 +16,73 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
+        background-image: url("background.png"); /* 放正確路徑 */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
       }
-      
+
       /* 導覽列樣式 */
       .nav-link {
-        color: #ead7b0; 
-        transition: color 0.3s ease; 
-        font-weight: 500; 
+        color: #ead7b0;
+        transition: color 0.3s ease;
+        font-weight: 500;
       }
       .nav-link:hover {
-        color: #FFFFFF; 
+        color: #ffffff;
       }
       .active-nav {
-        color: #FFFFFF; 
-        font-weight: 700; 
+        color: #ffffff;
+        font-weight: 700;
       }
 
       /* 滾動動畫樣式 */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1),
+          transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
       .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
       /* 內容區通用樣式 */
-       .content-section p, 
-      .log-section p, .log-section li, 
-      .reflection-card p, 
-      .contact-section p, 
-      .activity-section p, 
-      .artifact-section p, 
+      .content-section p,
+      .log-section p,
+      .log-section li,
+      .reflection-card p,
+      .contact-section p,
+      .activity-section p,
+      .artifact-section p,
       .deity-card p {
         line-height: 1.8;
         font-size: 1.125rem; /* 18px */
       }
-       .contact-section strong {
-        color: #2E1200;
-       }
-       .log-section blockquote {
-        border-left: 4px solid #FBBF24; 
+      .contact-section strong {
+        color: #2e1200;
+      }
+      .log-section blockquote {
+        border-left: 4px solid #fbbf24;
         padding-left: 1rem;
         margin: 1.5rem 0;
         font-style: italic;
-        color: #78716C; 
+        color: #78716c;
       }
 
       /* 手機版導覽選單的額外樣式 */
       #mobile-menu nav a {
-        display: block; 
-        padding: 0.75rem 1.5rem; 
-        text-align: center; 
-        border-bottom: 1px solid rgba(234, 215, 176, 0.15); 
+        display: block;
+        padding: 0.75rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(234, 215, 176, 0.15);
       }
       #mobile-menu nav a:last-child {
-        border-bottom: none; 
+        border-bottom: none;
       }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
     <header
       class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300"
     >
@@ -87,7 +93,7 @@
         <div class="flex-1 flex items-center justify-start">
           <a href="index.html">
             <img
-              src="templeLogo.png" 
+              src="templeLogo.png"
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
               onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
@@ -96,11 +102,11 @@
         </div>
 
         <nav
-          id="desktop-nav" 
+          id="desktop-nav"
           class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="nav-link">首頁</a>
-          <a href="about.html" class="active-nav">關於本廟</a> 
+          <a href="about.html" class="active-nav">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
           <a href="artifacts.html" class="nav-link">文物導覽</a>
@@ -110,17 +116,35 @@
         </nav>
 
         <div class="md:hidden flex items-center">
-          <button id="mobile-menu-button" aria-label="開啟選單" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <button
+            id="mobile-menu-button"
+            aria-label="開啟選單"
+            class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
             </svg>
           </button>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"> 
-        <nav class="flex flex-col py-2 text-xl"> 
-          <a href="index.html" class="nav-link">首頁</a> 
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"
+      >
+        <nav class="flex flex-col py-2 text-xl">
+          <a href="index.html" class="nav-link">首頁</a>
           <a href="about.html" class="active-nav">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
@@ -134,53 +158,57 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200] reveal"> 
+        <h1
+          class="text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#2E1200] reveal"
+        >
           關於本廟
         </h1>
 
-        <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl content-section reveal" style="transition-delay: 100ms;"> 
-          <section class="reveal" style="transition-delay: 200ms;">
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"> 
+        <div
+          class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl content-section reveal"
+          style="transition-delay: 100ms"
+        >
+          <section class="reveal" style="transition-delay: 200ms">
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
               起源與沿革
             </h2>
             <p>
               木柵集應廟的廟誌中，記錄著張氏祖先來台的歷史以及保儀尊王保佑其祖先平安渡台的事蹟。
               根據主委所述，當時是高、林、張三姓人家一同奉祀保儀尊王與申國夫人。但後來因故分家，透過抽籤分配原有的神尊與法器，其中張姓人士抽到的是歷史最悠久的香爐。此後，三姓人士各自請藝師雕塑其餘缺乏之神像，並在不同地方建立集應廟進行祭祀。這也是木柵集應廟擁有最古老香爐的由來。
             </p>
+            <br />
             <p>
-              建立年代：清德宗光緒甲午年（西元1894年）。【您可以在此處補充更多建廟過程的細節...】
+              在唐末黃巢之亂期間，張、高、林三姓族人為避戰亂，自河南光州遷移至福建安溪。在遷徙途中，他們深感保儀尊王的神力庇佑，使全族人得以安然抵達，於是於當地興建廟宇，虔誠奉祀。由於三姓族人在遷徙途中皆有感於「尪公」顯靈引導，便以「集應廟」作為廟名，象徵眾人共同感應神恩。
+              清康熙年間，由於福建生活困難，三姓族人攜手恭迎保儀尊王（俗稱尪公）與申國夫人（尊稱夫人媽）來台開墾，並一同奉祀祖神，延續信仰。後來因「頂下郊拚」事件引發族群間矛盾，三姓決議以抽籤方式和平分家，各自奉祀神明。
+              最終抽籤結果，張姓族人則得香爐（今木柵集應廟）、高姓族人得尪公神像（今景美集應廟）、林姓族人得夫人媽神像（今萬隆集應廟）。三姓族人隨後分別請藝師雕塑其所缺的神尊，於各地建廟，持續供奉保儀尊王與申國夫人，信仰因此在台灣各地開枝散葉，延續至今。
             </p>
           </section>
 
-          <section class="mt-12 reveal" style="transition-delay: 300ms;">
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
+          <section class="mt-12 reveal" style="transition-delay: 300ms">
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
               建築特色
             </h2>
+             
+              
             <p>
-              【請在此處描述建築特色，例如：金色主體、細緻雕刻、三性分廟的特殊格局...】
+              木柵集應廟雖然在1978年重建，但仍保留了許多臺灣傳統廟宇的建築精髓。最引人注目的是其燕尾翹脊和屋脊上精緻的剪黏藝術，展現了傳統工藝的巧奪天工。廟內隨處可見精美的石雕與壁飾，講述著古老的故事與吉祥寓意，加上充滿歷史感的匾額與柱聯，讓整座廟宇散發著濃厚的文化氣息。此外，廟宇在傳統格局的基礎上，也與時俱進地增設了文昌殿與財神殿，以滿足信眾多元的信仰需求。
             </p>
-            <div class="my-8 flex justify-center reveal" style="transition-delay: 400ms;">
-              <img 
-                src="https://placehold.co/600x400/cccccc/5A1E06?text=建築特色示意圖" 
-                alt="建築特色示意圖" 
-                class="rounded-lg shadow-md object-cover max-w-full h-auto"
+            <br>
+            <img
+                src="architecture.png"
+                alt="建築特色示意圖"
+                class="rounded-lg shadow-md object-cover max-h-full h-30px"
                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=圖片載入失敗';"
-              >
-            </div>
-            <p>
-              【可以繼續描述更多建築細節，或對圖片進行說明...】
-            </p>
+              />
+           
+            
           </section>
 
-          <section class="mt-12 reveal" style="transition-delay: 500ms;">
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">
-              組織與輪值
-            </h2>
-            <p>
-              【請在此處說明張氏九房、七房輪值的特殊制度與廟宇的組織運作方式...】
-            </p>
-          </section>
-
+         
         </div>
       </div>
     </main>
@@ -188,9 +216,9 @@
     <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
       <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
     </footer>
-    
+
     <script>
-      (function() {
+      (function () {
         if (window.pageScriptInitialized_about) {
           return;
         }
@@ -198,53 +226,60 @@
 
         let lastScrollTop = 0;
         const header = document.querySelector("header");
-      
+
         function handleScroll() {
           window.requestAnimationFrame(() => {
-              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              const currentHeaderHeight = header ? header.offsetHeight : 0; 
-              if (header) {
-                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+            const scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+            const currentHeaderHeight = header ? header.offsetHeight : 0;
+            if (header) {
+              if (
+                scrollTop > lastScrollTop &&
+                scrollTop > currentHeaderHeight
+              ) {
                 header.classList.add("translate-y-[-100%]");
-                } else {
+              } else {
                 header.classList.remove("translate-y-[-100%]");
-                }
               }
-              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
           });
         }
-      
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        window.addEventListener('load', () => {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        window.addEventListener("load", () => {
           if (header) {
             window.addEventListener("scroll", handleScroll, { passive: true });
           }
 
           if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', (event) => {
-              event.stopPropagation(); 
-              mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.addEventListener("click", (event) => {
+              event.stopPropagation();
+              mobileMenu.classList.toggle("hidden");
             });
           }
         });
 
         const revealElements = document.querySelectorAll(".reveal");
         if (revealElements.length > 0) {
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target); 
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
                 }
-            });
-            }, {
-            threshold: 0.15 
-            });
-            revealElements.forEach(element => {
+              });
+            },
+            {
+              threshold: 0.15,
+            }
+          );
+          revealElements.forEach((element) => {
             revealObserver.observe(element);
-            });
+          });
         }
       })();
     </script>
