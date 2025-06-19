@@ -17,66 +17,68 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
-      
+
       /* 導覽列樣式 */
       .nav-link {
-        color: #ead7b0; 
-        transition: color 0.3s ease; 
-        font-weight: 500; 
+        color: #ead7b0;
+        transition: color 0.3s ease;
+        font-weight: 500;
       }
       .nav-link:hover {
-        color: #FFFFFF; 
+        color: #ffffff;
       }
       .active-nav {
-        color: #FFFFFF; 
-        font-weight: 700; 
+        color: #ffffff;
+        font-weight: 700;
       }
 
       /* 滾動動畫樣式 */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1),
+          transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
       .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
       /* 內容區通用樣式 */
-      .content-section p, 
-      .log-section p, .log-section li, 
-      .reflection-card p, 
-      .contact-section p, 
-      .activity-section p, 
-      .artifact-section p, 
+      .content-section p,
+      .log-section p,
+      .log-section li,
+      .reflection-card p,
+      .contact-section p,
+      .activity-section p,
+      .artifact-section p,
       .deity-card p {
         line-height: 1.8;
         font-size: 1.125rem; /* 18px */
       }
-       .contact-section strong {
-        color: #2E1200;
-       }
-       .log-section blockquote {
-        border-left: 4px solid #FBBF24; 
+      .contact-section strong {
+        color: #2e1200;
+      }
+      .log-section blockquote {
+        border-left: 4px solid #fbbf24;
         padding-left: 1rem;
         margin: 1.5rem 0;
         font-style: italic;
-        color: #78716C; 
+        color: #78716c;
       }
 
       /* 手機版導覽選單的額外樣式 */
       #mobile-menu nav a {
-        display: block; 
-        padding: 0.75rem 1.5rem; 
-        text-align: center; 
-        border-bottom: 1px solid rgba(234, 215, 176, 0.15); 
+        display: block;
+        padding: 0.75rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(234, 215, 176, 0.15);
       }
       #mobile-menu nav a:last-child {
-        border-bottom: none; 
+        border-bottom: none;
       }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
     <header
       class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300"
     >
@@ -87,7 +89,7 @@
         <div class="flex-1 flex items-center justify-start">
           <a href="index.html">
             <img
-              src="templeLogo.png" 
+              src="templeLogo.png"
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
               onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
@@ -96,31 +98,49 @@
         </div>
 
         <nav
-          id="desktop-nav" 
+          id="desktop-nav"
           class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="nav-link">首頁</a>
-          <a href="about.html" class="nav-link">關於本廟</a> 
-          <a href="deities.html" class="nav-link">神明介紹</a> 
-          <a href="culture.html" class="nav-link">信仰活動</a> 
-          <a href="artifacts.html" class="active-nav">文物導覽</a> 
+          <a href="about.html" class="nav-link">關於本廟</a>
+          <a href="deities.html" class="nav-link">神明介紹</a>
+          <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="artifacts.html" class="active-nav">文物導覽</a>
           <a href="interview.html" class="nav-link">田野記錄</a>
           <a href="reflection.html" class="nav-link">組員心得</a>
           <a href="contact.html" class="nav-link">聯絡我們</a>
         </nav>
 
         <div class="md:hidden flex items-center">
-          <button id="mobile-menu-button" aria-label="開啟選單" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <button
+            id="mobile-menu-button"
+            aria-label="開啟選單"
+            class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
             </svg>
           </button>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg">
-        <nav class="flex flex-col py-2 text-xl"> 
-          <a href="index.html" class="nav-link">首頁</a> 
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"
+      >
+        <nav class="flex flex-col py-2 text-xl">
+          <a href="index.html" class="nav-link">首頁</a>
           <a href="about.html" class="nav-link">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
@@ -134,125 +154,193 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200] reveal">
+        <h1
+          class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200] reveal"
+        >
           文物導覽
         </h1>
 
-        <section class="mb-16 artifact-section reveal" style="transition-delay: 100ms;">
+        <section
+          class="mb-16 artifact-section reveal"
+          style="transition-delay: 100ms"
+        >
           <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl">
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">百年香爐</h2>
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              百年香爐
+            </h2>
             <div class="grid md:grid-cols-2 gap-8 items-center">
-              <img src="https://placehold.co/800x600/cccccc/2E1200?text=香爐照片" alt="香爐" class="rounded-lg shadow-md w-full reveal" style="transition-delay: 150ms;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';">
-              <div class="reveal" style="transition-delay: 200ms;">
+              <img
+                src="oven.png"
+                alt="香爐"
+                class="rounded-lg shadow-md w-full reveal"
+                style="transition-delay: 150ms"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';"
+              />
+              <div class="reveal" style="transition-delay: 200ms">
                 <p>
-                  木柵集應廟的香爐承載著悠久的歷史。根據廟方所述，在高、林、張三姓分家時，張姓人士抽到的便是這個歷史最悠久的香爐。這個香爐不僅是信仰的傳承，也是張氏家族與木柵地方共同記憶的見證。
-                  【您可以補充更多關於香爐材質、樣式或相關故事的細節...】
+                  廟中主神前的香爐是一件超過兩百年的珍貴文物。此香爐是早期建廟時從大陸分香而來，歷史悠久，甚至出現裂痕。過去因技術有限，前輩僅能用錫或鉛等物質進行包裹修補。由於其重要的歷史價值，廟方現正委託政治大學協助進行文物鑑定與保存，希望能讓這件承載信仰記憶的百年古物，獲得更完善的保護。
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="mb-16 artifact-section reveal" style="transition-delay: 250ms;">
+        <section
+          class="mb-16 artifact-section reveal"
+          style="transition-delay: 250ms"
+        >
           <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl">
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">廟內匾額</h2>
-             <div class="grid md:grid-cols-2 gap-8 items-center">
-              <div class="reveal" style="transition-delay: 300ms;">
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              廟內匾額
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div class="reveal" style="transition-delay: 300ms">
                 <p class="font-semibold">「澤被東南」匾</p>
                 <p>
-                  廟中懸掛的四大匾額之一「澤被東南」，是為了紀念張姓先祖張達京（亦有記載為張達兵、張李成）等英雄在中法戰爭中的功績。訪談中我們了解到，雖然歷史課本大多著重敘述劉銘傳的事蹟，但張氏先祖的貢獻同樣不可磨滅，此匾額即為當時清朝政府為表彰其功績所頒發。
-                  【您可以繼續介紹其他匾額，或補充「澤被東南」匾的更多細節，如年代、材質、書法風格等...】
+                  廟中懸掛的四大匾額之一「澤被東南」，是為了紀念張姓先祖張達京（亦有記載為張達兵、張李成）等英雄在中法戰爭中的功績，當時清朝政府為了表彰其功績頒發了匾額「澤被東南」。
                 </p>
               </div>
-               <img src="https://placehold.co/800x600/cccccc/2E1200?text=匾額照片" alt="匾額「澤被東南」" class="rounded-lg shadow-md w-full reveal" style="transition-delay: 350ms;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';">
+              <img
+                src="board.png"
+                alt="匾額「澤被東南」"
+                class="rounded-lg shadow-md w-full reveal"
+                style="transition-delay: 350ms"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';"
+              />
             </div>
           </div>
         </section>
-        
-        <section class="mb-16 artifact-section reveal" style="transition-delay: 400ms;">
-          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl">
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">魁星筆</h2>
-            <p class="reveal" style="transition-delay: 450ms;">
-              【請在此處介紹魁星筆的象徵意義，以及它如何與考試祈願儀式結合，成為廟中重要的信仰器物...】
-            </p>
-            <div class="my-8 flex justify-center reveal" style="transition-delay: 500ms;">
-                <img src="https://placehold.co/1200x400/cccccc/2E1200?text=魁星筆照片" alt="魁星筆" class="rounded-lg shadow-md w-full object-cover max-h-80" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/E2E8F0/4A5568?text=圖片載入失敗';">
-             </div>
+
+        <section
+          class="mb-16 artifact-section reveal"
+          style="transition-delay: 400ms"
+        >
+          <div
+            class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl flex flex-col lg:flex-row items-center gap-8 lg:gap-12"
+          >
+            <div class="lg:w-1/2">
+              <h2
+                class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+              >
+                魁星筆
+              </h2>
+              <div
+                class="space-y-4 text-gray-800 reveal"
+                style="transition-delay: 450ms"
+              >
+                <p>
+                  「魁星筆」是魁星爺（道教中掌管文運的神祇）手中的法器，象徵著掌握文章的才氣與文彩，是智慧與考運的化身。
+                </p>
+                <p>
+                  在集應廟中，許多考生會特地前來祈願，並伸手觸摸「魁星筆」，或模仿提筆揮毫的動作。這個簡單的儀式，寄託了信眾「一筆定江山、一筆寫中狀元」的殷切期盼。
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="lg:w-1/2 w-full flex justify-center items-center reveal"
+              style="transition-delay: 500ms"
+            >
+              <img
+                src="pen.png"
+                alt="魁星筆"
+                class="rounded-lg shadow-md h-auto max-w-xs max-h-80"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=圖片載入失敗';"
+              />
+            </div>
           </div>
         </section>
-
-        <section class="artifact-section reveal" style="transition-delay: 550ms;">
+        <section
+          class="artifact-section reveal"
+          style="transition-delay: 550ms"
+        >
           <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl">
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">文物狀況與修復</h2>
-            <p class="reveal" style="transition-delay: 600ms;">
-              【請在此處說明您觀察到的文物狀況，例如香爐上的裂痕等。並可以闡述廟方採取的修復方式（如包覆），以及是否有進行文資保存的申請與規劃...】
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              文物狀況與修復
+            </h2>
+            <p class="reveal" style="transition-delay: 600ms">
+              在有形文化資產方面，廟方近年與國立政治大學宗教研究所合作，致力於修復具百年歷史的香爐。此計畫導入科技掃描、數位建模與劣化分析等現代技術，精準評估香爐因裂痕、舊式金屬包覆等問題造成的老化狀況，並依此提出科學化的修復建議，大幅提升了傳統文物的保存年限與修復準確性。
+
+至於無形文化資產，由廟方主辦的「尪公年例祭典」，已於2023至2024年間由臺北市文化局啟動「列冊追蹤」程序。目前祭典正處於文化資產的登錄審議階段，但尚未完成法定程序，還未正式核定。
             </p>
           </div>
         </section>
-
       </div>
     </main>
 
     <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
       <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
     </footer>
-    
+
     <script>
-      (function() {
-        if (window.pageScriptInitialized_artifacts) { 
+      (function () {
+        if (window.pageScriptInitialized_artifacts) {
           return;
         }
-        window.pageScriptInitialized_artifacts = true; 
+        window.pageScriptInitialized_artifacts = true;
 
         let lastScrollTop = 0;
         const header = document.querySelector("header");
-      
+
         function handleScroll() {
           window.requestAnimationFrame(() => {
-              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              const currentHeaderHeight = header ? header.offsetHeight : 0; 
-              if (header) {
-                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+            const scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+            const currentHeaderHeight = header ? header.offsetHeight : 0;
+            if (header) {
+              if (
+                scrollTop > lastScrollTop &&
+                scrollTop > currentHeaderHeight
+              ) {
                 header.classList.add("translate-y-[-100%]");
-                } else {
+              } else {
                 header.classList.remove("translate-y-[-100%]");
-                }
               }
-              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
           });
         }
-      
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        window.addEventListener('load', () => {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        window.addEventListener("load", () => {
           if (header) {
             window.addEventListener("scroll", handleScroll, { passive: true });
           }
 
           if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', (event) => {
+            mobileMenuButton.addEventListener("click", (event) => {
               event.stopPropagation();
-              mobileMenu.classList.toggle('hidden');
+              mobileMenu.classList.toggle("hidden");
             });
           }
         });
 
         const revealElements = document.querySelectorAll(".reveal");
         if (revealElements.length > 0) {
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
                 }
-            });
-            }, {
-            threshold: 0.15 
-            });
-            revealElements.forEach(element => {
+              });
+            },
+            {
+              threshold: 0.15,
+            }
+          );
+          revealElements.forEach((element) => {
             revealObserver.observe(element);
-            });
+          });
         }
       })();
     </script>

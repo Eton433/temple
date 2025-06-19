@@ -17,66 +17,68 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
-      
+
       /* 導覽列樣式 */
       .nav-link {
-        color: #ead7b0; 
-        transition: color 0.3s ease; 
-        font-weight: 500; 
+        color: #ead7b0;
+        transition: color 0.3s ease;
+        font-weight: 500;
       }
       .nav-link:hover {
-        color: #FFFFFF; 
+        color: #ffffff;
       }
       .active-nav {
-        color: #FFFFFF; 
-        font-weight: 700; 
+        color: #ffffff;
+        font-weight: 700;
       }
 
       /* 滾動動畫樣式 */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1),
+          transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
       .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
       /* 內容區通用樣式 */
-      .content-section p, 
-      .log-section p, .log-section li, 
-      .reflection-card p, 
-      .contact-section p, 
-      .activity-section p, 
-      .artifact-section p, 
+      .content-section p,
+      .log-section p,
+      .log-section li,
+      .reflection-card p,
+      .contact-section p,
+      .activity-section p,
+      .artifact-section p,
       .deity-card p {
         line-height: 1.8;
         font-size: 1.125rem; /* 18px */
       }
-       .contact-section strong {
-        color: #2E1200;
-       }
-       .log-section blockquote {
-        border-left: 4px solid #FBBF24; 
+      .contact-section strong {
+        color: #2e1200;
+      }
+      .log-section blockquote {
+        border-left: 4px solid #fbbf24;
         padding-left: 1rem;
         margin: 1.5rem 0;
         font-style: italic;
-        color: #78716C; 
+        color: #78716c;
       }
 
       /* 手機版導覽選單的額外樣式 */
       #mobile-menu nav a {
-        display: block; 
-        padding: 0.75rem 1.5rem; 
-        text-align: center; 
-        border-bottom: 1px solid rgba(234, 215, 176, 0.15); 
+        display: block;
+        padding: 0.75rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(234, 215, 176, 0.15);
       }
       #mobile-menu nav a:last-child {
-        border-bottom: none; 
+        border-bottom: none;
       }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
     <header
       class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300"
     >
@@ -87,7 +89,7 @@
         <div class="flex-1 flex items-center justify-start">
           <a href="index.html">
             <img
-              src="templeLogo.png" 
+              src="templeLogo.png"
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
               onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
@@ -96,31 +98,49 @@
         </div>
 
         <nav
-          id="desktop-nav" 
+          id="desktop-nav"
           class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="nav-link">首頁</a>
-          <a href="about.html" class="nav-link">關於本廟</a> 
-          <a href="deities.html" class="nav-link">神明介紹</a> 
-          <a href="culture.html" class="nav-link">信仰活動</a> 
-          <a href="artifacts.html" class="nav-link">文物導覽</a> 
-          <a href="interview.html" class="nav-link">田野記錄</a> 
-          <a href="reflection.html" class="active-nav">組員心得</a> 
+          <a href="about.html" class="nav-link">關於本廟</a>
+          <a href="deities.html" class="nav-link">神明介紹</a>
+          <a href="culture.html" class="nav-link">信仰活動</a>
+          <a href="artifacts.html" class="nav-link">文物導覽</a>
+          <a href="interview.html" class="nav-link">田野記錄</a>
+          <a href="reflection.html" class="active-nav">組員心得</a>
           <a href="contact.html" class="nav-link">聯絡我們</a>
         </nav>
 
         <div class="md:hidden flex items-center">
-          <button id="mobile-menu-button" aria-label="開啟選單" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <button
+            id="mobile-menu-button"
+            aria-label="開啟選單"
+            class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
             </svg>
           </button>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg">
-        <nav class="flex flex-col py-2 text-xl"> 
-          <a href="index.html" class="nav-link">首頁</a> 
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"
+      >
+        <nav class="flex flex-col py-2 text-xl">
+          <a href="index.html" class="nav-link">首頁</a>
           <a href="about.html" class="nav-link">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="nav-link">信仰活動</a>
@@ -134,56 +154,116 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200] reveal">
+        <h1
+          class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200] reveal"
+        >
           組員心得
         </h1>
 
         <div class="space-y-10">
-
-          <div class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal" style="transition-delay: 100ms;"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">俋伶</h2> 
-            <p class="reveal" style="transition-delay: 150ms;">
+          <div
+            class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal"
+            style="transition-delay: 100ms" text-[#6D4C41]
+          >
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              俋伶
+            </h2>
+            <p class="reveal" style="transition-delay: 150ms">
               這次我們做的是關於木柵集應廟的田野調查和介紹網站，雖然我沒能一起去現場訪查，但我有參與後續的工作，像是剪輯訪談影片，以及協助整理網站上的圖文內容。透過組員拍回來的照片和錄音，我一邊剪片一邊也慢慢了解這座廟的歷史和信仰背景。
             </p>
-            <p class="mt-4 reveal" style="transition-delay: 150ms;">
+            <p class="mt-4 reveal" style="transition-delay: 150ms">
               在編輯圖文的時候，我試著讓內容更清楚易懂，也想辦法搭配圖片讓整體更有吸引力。雖然不是第一線的田野調查者，但這樣的過程也讓我學到很多，像是怎麼整理資訊、怎麼把複雜的文化內容變得好入口，還有影片中受訪者分享的細節，也讓我感受到廟宇在在地生活中的角色。這次經驗讓我發現，就算沒到現場，只要投入在後製與整理過程，也能對一個地方文化有很深的參與感。
             </p>
           </div>
-          
-          <div class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal" style="transition-delay: 200ms;"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">郁庭</h2> 
-            <p class="reveal" style="transition-delay: 250ms;">
-              在這次的期末報告中，我負責實地採訪的部分，雖未參與網站的製作，但這段經歷讓我深刻體會到田野調查的意義所在。透過與木柵集應廟的主委、志工以及信眾們的互動，不僅收集到寶貴的第一手資料，也感受到地方信仰文化對民眾的影響。這些真實的故事，豐富了我們報告的內涵。看到組員們將這些資料轉化為網站內容，呈現出廟宇的歷史、神明介紹與信仰活動，讓我明白實地採訪與數位呈現是相輔相成的，缺一不可。雖然未來未必會繼續從事田野調查，但這次的經驗讓我更理解團隊合作的重要，以及每一位成員在不同角色中所扮演的關鍵價值。
-            </p>
+
+          <div
+            class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal"
+            style="transition-delay: 200ms"
+          >
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              郁庭
+            </h2>
+            <div class="space-y-4 text-[#6D4C41]">
+              <p class="reveal" style="transition-delay: 250ms">
+                在這次的期末報告中，我負責實地採訪的部分，雖未直接參與網站的製作，但這段經歷讓我深刻體會到田野調查的意義所在。
+              </p>
+              <p class="reveal" style="transition-delay: 300ms">
+                透過與木柵集應廟的主委、義工以及信眾們的互動，我們不僅收集到寶貴的第一手資料，也真實地感受到地方信仰文化對民眾的深刻影響。這些充滿溫度的故事，極大地豐富了我們報告的內涵。
+              </p>
+              <p class="reveal" style="transition-delay: 350ms">
+                當看到組員們將這些訪談資料轉化為網站內容，呈現出廟宇的歷史、神明介紹與信仰活動時，我才明白，原來實地採訪與數位呈現是如此地相輔相成，兩者缺一不可。
+              </p>
+              <p class="reveal" style="transition-delay: 400ms">
+                雖然未來未必會繼續從事田野調查，但這次的經驗讓我更理解團隊合作的重要性，也學會了欣賞每一位成員在不同崗位上所扮演的關鍵價值。
+              </p>
+            </div>
           </div>
 
-          <div class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal" style="transition-delay: 300ms;"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">秉毅</h2> 
-            <p class="reveal" style="transition-delay: 350ms;">
+          <div
+            class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal"
+            style="transition-delay: 300ms"
+          >
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              秉毅
+            </h2>
+            <p class="reveal" style="transition-delay: 350ms">
               這次參與木柵集應廟的專題網站製作，對我而言是一次很特別的學習經驗。雖然因為安排的關係，我未能親自踏查廟宇，主要負責的是網頁前端的建置與視覺呈現，但透過組員們帶回的豐富資料，那些生動的照片、詳實的訪談錄音，以及他們對廟宇歷史文化的細膩描述，我彷彿也一同走過了那段訪談之路。
             </p>
-            <p class="mt-4 reveal" style="transition-delay: 350ms;">
+            <p class="mt-4 reveal" style="transition-delay: 350ms">
               在將這些素材轉化為網頁元素的過程中，我不僅學習到如何運用技術來呈現文化主題，更在字裡行間、影像光影中，逐漸勾勒出集應廟在地方信仰中的獨特樣貌與溫度。從最初對廟宇的模糊概念，到後來能清晰地向他人介紹其特色與故事，這個轉變讓我深刻體會到，即使是間接的參與，只要用心投入，也能對一個地方文化產生連結與共鳴。這次的經驗也讓我更理解團隊分工的價值，每個人的努力都是成就最終成果不可或缺的一環。
             </p>
           </div>
 
-          <div class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal" style="transition-delay: 400ms;"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">以昕</h2> 
-            <p class="reveal" style="transition-delay: 450ms;">
-              這次的期末報告，我負責的是田野調查，我認為田野調查比起查找資料是更好的研究方式，因為你會實地走訪，可以探查當地的風情以及觀察存在於空氣中的文化，這是閱讀文字無法領會的。這次調查也是，我深刻的體會到廟宇寧靜祥和的感覺，以及志工及主委對於廟宇的情感，他們都對於廟宇有著情有獨鍾的愛及依賴，流露於字裡行間的是他們於廟中惦記的人事物。舉例而言，主委負責的是整間廟的大小事，而他說話的內容中也可以感受出他非常在乎廟宇的歷史，也是其祖先的歷史淵源，並也惦記著廟宇未來的發展。而至於是為我們解說志工，他店記得是來廟中祈福的信眾們，希望每位來祈福的信眾可以過上平安無憂的日子。謝謝教授給予我這個機會以接觸木柵這樣的角落以及其民情，我獲益良多！
-            </p>
+          <div
+            class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal"
+            style="transition-delay: 400ms"
+          >
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              以昕
+            </h2>
+            <div class="space-y-4 text-amber-950">
+              <p class="reveal" style="transition-delay: 450ms">
+                在這次的期末報告中，我負責的是田野調查。我認為這比起單純查找資料是更好的研究方式，因為實地走訪能讓人探查當地的風情，並觀察存在於空氣中的文化，這是純粹閱讀文字時無法領會的。
+              </p>
+              <p class="reveal" style="transition-delay: 500ms">
+                這次的調查也是如此，我深刻體會到廟宇寧靜祥和的氛圍，以及志工與主委對於廟宇的情感。他們都對這座廟有著情有獨鍾的愛與依賴，流露於字裡行間的，都是他們在此惦記著的人事物。
+              </p>
+              <p class="reveal" style="transition-delay: 550ms">
+                舉例而言，主委負責的是整間廟的大小事，從他的談話中可以感受到，他非常在乎廟宇的歷史，也就是其祖先的歷史淵源，同時也心繫著廟宇未來的發展。
+              </p>
+              <p class="reveal" style="transition-delay: 600ms">
+                而為我們解說的義工，他心心念念的則是來廟中祈福的信眾們，真誠地希望每一位來訪的香客都能過上平安無憂的日子。
+              </p>
+              <p class="reveal" style="transition-delay: 650ms">
+                非常謝謝教授給予我這個機會，能接觸到木柵這個迷人的角落及其溫暖的民情，我獲益良多！
+              </p>
+            </div>
           </div>
 
-          <div class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal" style="transition-delay: 500ms;"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">綜合反思與觀察</h2> 
-            <p class="reveal" style="transition-delay: 550ms;">
+          <div
+            class="bg-stone-100 p-8 lg:p-10 rounded-xl shadow-xl reflection-card reveal"
+            style="transition-delay: 500ms"
+          >
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              綜合反思與觀察
+            </h2>
+            <p class="reveal" style="transition-delay: 550ms">
               前面有提到我們在邀約訪談的時候是有困難的，但這次與廟方對話時，他們卻表示希望能讓更多人了解集應廟。這個矛盾讓我覺得很奇怪，如果希望擴大影響力，不是應該善用媒體與大眾溝通嗎？
             </p>
-            <p class="mt-4 reveal" style="transition-delay: 600ms;">
+            <p class="mt-4 reveal" style="transition-delay: 600ms">
               主委跟我們說小眾信仰有許多版本不同的問題，例如神明的誕辰日，不同派別有各自的認定。但為什麼至今仍沒有一個統一的說法？各派統一說法不是更能將信仰推廣出去嗎？
             </p>
           </div>
-
         </div>
       </div>
     </main>
@@ -191,63 +271,70 @@
     <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
       <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
     </footer>
-    
+
     <script>
-      (function() {
-        if (window.pageScriptInitialized_reflection) { 
+      (function () {
+        if (window.pageScriptInitialized_reflection) {
           return;
         }
-        window.pageScriptInitialized_reflection = true; 
+        window.pageScriptInitialized_reflection = true;
 
         let lastScrollTop = 0;
         const header = document.querySelector("header");
-      
+
         function handleScroll() {
           window.requestAnimationFrame(() => {
-              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              const currentHeaderHeight = header ? header.offsetHeight : 0; 
-              if (header) {
-                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+            const scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+            const currentHeaderHeight = header ? header.offsetHeight : 0;
+            if (header) {
+              if (
+                scrollTop > lastScrollTop &&
+                scrollTop > currentHeaderHeight
+              ) {
                 header.classList.add("translate-y-[-100%]");
-                } else {
+              } else {
                 header.classList.remove("translate-y-[-100%]");
-                }
               }
-              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
           });
         }
-      
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        window.addEventListener('load', () => {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        window.addEventListener("load", () => {
           if (header) {
             window.addEventListener("scroll", handleScroll, { passive: true });
           }
 
           if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', (event) => {
+            mobileMenuButton.addEventListener("click", (event) => {
               event.stopPropagation();
-              mobileMenu.classList.toggle('hidden');
+              mobileMenu.classList.toggle("hidden");
             });
           }
         });
 
         const revealElements = document.querySelectorAll(".reveal");
         if (revealElements.length > 0) {
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
                 }
-            });
-            }, {
-            threshold: 0.15 
-            });
-            revealElements.forEach(element => {
+              });
+            },
+            {
+              threshold: 0.15,
+            }
+          );
+          revealElements.forEach((element) => {
             revealObserver.observe(element);
-            });
+          });
         }
       })();
     </script>

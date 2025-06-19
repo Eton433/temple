@@ -17,66 +17,68 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
-      
+
       /* 導覽列樣式 */
       .nav-link {
-        color: #ead7b0; 
-        transition: color 0.3s ease; 
-        font-weight: 500; 
+        color: #ead7b0;
+        transition: color 0.3s ease;
+        font-weight: 500;
       }
       .nav-link:hover {
-        color: #FFFFFF; 
+        color: #ffffff;
       }
       .active-nav {
-        color: #FFFFFF; 
-        font-weight: 700; 
+        color: #ffffff;
+        font-weight: 700;
       }
 
       /* 滾動動畫樣式 */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1),
+          transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
       .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
       /* 內容區通用樣式 */
-      .content-section p, 
-      .log-section p, .log-section li, 
-      .reflection-card p, 
-      .contact-section p, 
-      .activity-section p, 
-      .artifact-section p, 
+      .content-section p,
+      .log-section p,
+      .log-section li,
+      .reflection-card p,
+      .contact-section p,
+      .activity-section p,
+      .artifact-section p,
       .deity-card p {
         line-height: 1.8;
         font-size: 1.125rem; /* 18px */
       }
-       .contact-section strong {
-        color: #2E1200;
-       }
-       .log-section blockquote {
-        border-left: 4px solid #FBBF24; 
+      .contact-section strong {
+        color: #2e1200;
+      }
+      .log-section blockquote {
+        border-left: 4px solid #fbbf24;
         padding-left: 1rem;
         margin: 1.5rem 0;
         font-style: italic;
-        color: #78716C; 
+        color: #78716c;
       }
 
       /* 手機版導覽選單的額外樣式 */
       #mobile-menu nav a {
-        display: block; 
-        padding: 0.75rem 1.5rem; 
-        text-align: center; 
-        border-bottom: 1px solid rgba(234, 215, 176, 0.15); 
+        display: block;
+        padding: 0.75rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(234, 215, 176, 0.15);
       }
       #mobile-menu nav a:last-child {
-        border-bottom: none; 
+        border-bottom: none;
       }
     </style>
   </head>
-  <body class="bg-gray-100 text-[#5A1E06] min-h-screen"> 
+  <body class="bg-gray-100 text-[#5A1E06] min-h-screen">
     <header
       class="bg-[#2E1200] fixed w-full top-0 z-50 shadow-md transition-transform duration-300"
     >
@@ -87,7 +89,7 @@
         <div class="flex-1 flex items-center justify-start">
           <a href="index.html">
             <img
-              src="templeLogo.png" 
+              src="templeLogo.png"
               alt="木柵集應廟 Logo"
               class="h-[110px] object-contain"
               onerror="this.onerror=null; this.src='https://placehold.co/200x110/2E1200/EAD7B0?text=Logo';"
@@ -96,13 +98,13 @@
         </div>
 
         <nav
-          id="desktop-nav" 
+          id="desktop-nav"
           class="space-x-8 text-xl hidden md:flex items-center"
         >
           <a href="index.html" class="nav-link">首頁</a>
-          <a href="about.html" class="nav-link">關於本廟</a> 
-          <a href="deities.html" class="nav-link">神明介紹</a> 
-          <a href="culture.html" class="active-nav">信仰活動</a> 
+          <a href="about.html" class="nav-link">關於本廟</a>
+          <a href="deities.html" class="nav-link">神明介紹</a>
+          <a href="culture.html" class="active-nav">信仰活動</a>
           <a href="artifacts.html" class="nav-link">文物導覽</a>
           <a href="interview.html" class="nav-link">田野記錄</a>
           <a href="reflection.html" class="nav-link">組員心得</a>
@@ -110,17 +112,35 @@
         </nav>
 
         <div class="md:hidden flex items-center">
-          <button id="mobile-menu-button" aria-label="開啟選單" class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <button
+            id="mobile-menu-button"
+            aria-label="開啟選單"
+            class="text-[#EAD7B0] focus:outline-none p-2 hover:text-white transition-colors"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
             </svg>
           </button>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg">
-        <nav class="flex flex-col py-2 text-xl"> 
-          <a href="index.html" class="nav-link">首頁</a> 
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#2E1200]/95 backdrop-blur-sm absolute w-full top-[130px] left-0 shadow-lg rounded-b-lg"
+      >
+        <nav class="flex flex-col py-2 text-xl">
+          <a href="index.html" class="nav-link">首頁</a>
           <a href="about.html" class="nav-link">關於本廟</a>
           <a href="deities.html" class="nav-link">神明介紹</a>
           <a href="culture.html" class="active-nav">信仰活動</a>
@@ -134,136 +154,210 @@
 
     <main class="pt-[170px] pb-16 lg:pb-24">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200] reveal">
+        <h1
+          class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-[#2E1200] reveal"
+        >
           信仰活動
         </h1>
 
-        <section class="mb-16 activity-section reveal" style="transition-delay: 100ms;">
-          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">文昌祈福</h2>
+        <section
+          class="mb-16 activity-section reveal"
+          style="transition-delay: 100ms"
+        >
+          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl">
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              文昌祈福
+            </h2>
             <div class="grid md:grid-cols-2 gap-8 items-center">
-              <div class="reveal" style="transition-delay: 150ms;">
-                <p class="font-semibold">主要儀式：摸魁星筆、便條紙牆、點光明燈</p>
+              <div class="reveal" style="transition-delay: 150ms">
+                <p class="font-semibold">
+                  主要儀式：摸魁星筆、便條紙牆、點光明燈
+                </p>
                 <p>
                   【請在此處詳細描述文昌祈福的過程，例如考生如何透過觸摸魁星筆來祈求考運，以及在便條紙牆上寫下心願的特殊文化...】
                   許多學生會來廟中點光明燈以祈求學業、考試順利。
                 </p>
               </div>
-              <img src="https://placehold.co/800x600/cccccc/2E1200?text=文昌祈福活動照片" alt="文昌祈福" class="rounded-lg shadow-md w-full reveal" style="transition-delay: 200ms;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';">
+              <img
+                src="blessForExam.png"
+                alt="文昌祈福"
+                class="rounded-lg shadow-md w-full reveal"
+                style="transition-delay: 200ms"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';"
+              />
             </div>
           </div>
         </section>
 
-        <section class="mb-16 activity-section reveal" style="transition-delay: 250ms;">
-          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">年度大事</h2>
+        <section
+          class="mb-16 activity-section reveal"
+          style="transition-delay: 250ms"
+        >
+          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl">
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              年度大事
+            </h2>
             <div class="grid md:grid-cols-2 gap-8 items-center">
-                <img src="https://placehold.co/800x600/cccccc/2E1200?text=文昌百宴或上山巡視" alt="年度大事" class="rounded-lg shadow-md w-full md:order-last reveal" style="transition-delay: 350ms;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';">
-              <div class="reveal" style="transition-delay: 300ms;">
-                <p class="font-semibold">主要活動：文昌百宴、上山巡視</p>
+              <img
+                src="route.png"
+                alt="年度大事"
+                class="rounded-lg shadow-md w-full md:order-last reveal"
+                style="transition-delay: 350ms"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x600/E2E8F0/4A5568?text=圖片載入失敗';"
+              />
+              <div class="reveal" style="transition-delay: 300ms">
+                <p class="font-semibold">主要活動：上山巡視</p>
                 <p>
-                  【請在此處分別介紹這兩項年度盛事。描述文昌百宴的由來與形式，以及上山巡視的路線與意義...】
+                  迎請主祀神明保儀尊王，到山區或偏遠地區巡察的習俗。這源於早期先民祈求神明驅邪除瘟、確保地方平安與作物豐收的需求，特別是對茶農而言，更是期盼神明能巡視茶園、除蟲保收。透過神轎隊伍沿途淨化、駐駕祈福，不僅鞏固神明對地域的保護，也凝聚了社區情感，傳承在地文化與信仰。
                 </p>
               </div>
             </div>
           </div>
         </section>
-        
-        <section class="mb-16 activity-section reveal" style="transition-delay: 400ms;">
-          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">罕見活動：立筊</h2> <p class="reveal" style="transition-delay: 450ms;">
-              廟方說明通常立筊是神明想提醒可能有重大天災將發生或是對於擲筊者的祝福。
-              【「立筊」是非常特殊的活動，請在此詳細說明它的進行方式、歷史淵源以及在現代社會中的傳承情況...】
+
+        <section
+          class="mb-16 activity-section reveal"
+          style="transition-delay: 400ms"
+        >
+          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl">
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              罕見活動：立筊
+            </h2>
+            <p class="reveal" style="transition-delay: 450ms">
+              一般視為神明有話要對信眾說，同時這也表示這段時間神明希望有更多信眾來參拜，以便傳達神旨，讓社會人心得到更好的教化。若是大眾在此時前往參拜，特別能得到足以轉運、消災、避難的時機。
             </p>
-             <div class="my-8 flex justify-center reveal" style="transition-delay: 500ms;">
-                <img src="https://placehold.co/1200x400/cccccc/2E1200?text=立筊活動照片" alt="立筊" class="rounded-lg shadow-md w-full object-cover max-h-80" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/E2E8F0/4A5568?text=圖片載入失敗';">
-             </div>
+            <div
+              class="my-8 flex justify-center reveal"
+              style="transition-delay: 500ms"
+            >
+              <img
+                src="miracle.png"
+                alt="立筊"
+                class="rounded-lg shadow-md w-full object-cover max-h-80"
+                onerror="this.onerror=null; this.src='https://placehold.co/1200x400/E2E8F0/4A5568?text=圖片載入失敗';"
+              />
+            </div>
           </div>
         </section>
 
-        <section class="activity-section reveal" style="transition-delay: 550ms;">
-          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl"> 
-            <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">還願文化與故事</h2>
-            <p class="reveal" style="transition-delay: 600ms;">
-              考上理想學校的考生常會回到廟中「還願」，有的會準備油飯等食物分送眾人，表達感謝之意。
-              【請在此處分享您在田野調查中觀察到的更多還願文化細節...】
+        <section
+          class="activity-section reveal"
+          style="transition-delay: 550ms"
+        >
+          <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl">
+            <h2
+              class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3"
+            >
+              還願文化與故事
+            </h2>
+            <p class="reveal" style="transition-delay: 600ms">
+              在文昌帝君的庇佑下，許多信眾在心願達成後，都會回到廟中以各種方式表達感謝，形成了獨特的還願文化。從學業、事業到家庭，還願的故事充滿了溫暖與虔誠。
             </p>
-          </div>
-        </section>
 
-        <section class="mt-16 activity-section reveal" style="transition-delay: 650ms;">
-            <div class="bg-stone-100 p-8 lg:p-12 rounded-xl shadow-xl"> 
-              <h2 class="text-3xl font-bold mb-6 text-[#2E1200] border-b-2 border-yellow-700 pb-3">收驚服務</h2>
-              <p class="reveal" style="transition-delay: 700ms;">
-                我們還得知主委太太會免費幫民眾收驚，有的人真的是因為看到一些可怕的畫面歷歷在目而去收驚，但有的人其實只是晚上睡不著去收驚，但實際上只是作息不正常。
-                【可以補充更多關於收驚服務的細節或觀察...】
+            <div class="mt-4 reveal" style="transition-delay: 650ms">
+              <h3 class="text-xl font-semibold mt-6 text-[#2E1200]">
+                學業成就與感恩
+              </h3>
+              <p class="mt-2">
+                廟方早期的「文昌百宴」曾幫助無數考生，一位當年的狀元郎，如今已事業有成，這份成就也讓廟方感到欣慰。更有許多學子在金榜題名後回來還願，例如兩位剛考上高考的年輕小姐，特地捐贈了數萬元的香油錢；還有一位父親，家中兩個女兒陸續考上北一女，每次放榜後，他都會訂購豐盛的祭品來感謝神明。
+              </p>
+
+              <h3 class="text-xl font-semibold mt-6 text-[#2E1200]">
+                家庭喜悅與分享
+              </h3>
+              <p class="mt-2">
+                除了學業，信眾也會為家事祈福。一對求子多年的夫妻，在順利得子後，特別訂購了大量的油飯來廟裡分享喜悅，將這份福氣傳遞給更多人。
+              </p>
+
+              <h3 class="text-xl font-semibold mt-6 text-[#2E1200]">
+                困境中的平安歸來
+              </h3>
+              <p class="mt-2">
+                在面臨危難時，信仰也成為重要的心靈慰藉。曾有一位父親因兒子在國外遭遇詐騙集團，心急如焚。在廟方建議下點燈祈福，最終兒子平安歸來。事後，這位父親連續點了一個月的燈以表達最深的感謝。同樣地，一位丈夫在妻子因重病昏迷時，每日虔誠祈禱，最終盼得妻子奇蹟般甦醒。
+              </p>
+
+              <p class="mt-6">
+                這些真實的案例，不僅是單純的還願，更展現了信眾在生命重要時刻，對神明庇佑的深刻信賴與感恩之情，也構成了廟宇最動人的風景。
               </p>
             </div>
-          </section>
-
+          </div>
+        </section>
       </div>
     </main>
 
     <footer class="bg-[#2E1200] text-white text-center py-6 mt-16">
       <p>© 2025 木柵集應廟田野調查小組・僅供課程成果展示</p>
     </footer>
-    
+
     <script>
-      (function() {
-        if (window.pageScriptInitialized_culture) { 
+      (function () {
+        if (window.pageScriptInitialized_culture) {
           return;
         }
         window.pageScriptInitialized_culture = true;
 
         let lastScrollTop = 0;
         const header = document.querySelector("header");
-      
+
         function handleScroll() {
           window.requestAnimationFrame(() => {
-              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              const currentHeaderHeight = header ? header.offsetHeight : 0; 
-              if (header) {
-                if (scrollTop > lastScrollTop && scrollTop > currentHeaderHeight) {
+            const scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+            const currentHeaderHeight = header ? header.offsetHeight : 0;
+            if (header) {
+              if (
+                scrollTop > lastScrollTop &&
+                scrollTop > currentHeaderHeight
+              ) {
                 header.classList.add("translate-y-[-100%]");
-                } else {
+              } else {
                 header.classList.remove("translate-y-[-100%]");
-                }
               }
-              lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
           });
         }
-      
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        window.addEventListener('load', () => {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        window.addEventListener("load", () => {
           if (header) {
             window.addEventListener("scroll", handleScroll, { passive: true });
           }
 
           if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', (event) => {
+            mobileMenuButton.addEventListener("click", (event) => {
               event.stopPropagation();
-              mobileMenu.classList.toggle('hidden');
+              mobileMenu.classList.toggle("hidden");
             });
           }
         });
 
         const revealElements = document.querySelectorAll(".reveal");
         if (revealElements.length > 0) {
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
                 }
-            });
-            }, {
-            threshold: 0.15 
-            });
-            revealElements.forEach(element => {
+              });
+            },
+            {
+              threshold: 0.15,
+            }
+          );
+          revealElements.forEach((element) => {
             revealObserver.observe(element);
-            });
+          });
         }
       })();
     </script>
