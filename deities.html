@@ -17,7 +17,22 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
-
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("background.png"); /* 放正確路徑 */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        opacity: 0.25; /* 可調整透明度 */
+        z-index: -1;
+        pointer-events: none;
+        filter: blur(2px); /* 加模糊感，讓圖案更柔和 */
+      }
       /* 導覽列樣式 */
       .nav-link {
         color: #ead7b0;
@@ -220,19 +235,17 @@
               />
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-2 text-[#2E1200]">文昌帝君</h3>
-                <p class="font-semibold mb-3">
-                  功名、學業
+                <p class="font-semibold mb-3">功名、學業</p>
+                <p>
+                  保佑學子們讀書順利、金榜題名，也庇佑文職人員事業晉升。古時士人期盼文昌帝君眷顧以求科舉高中，現今學生、家長仍會前往祈福，期望學業與職場競爭中脫穎而出。祭拜時常備芹菜、蔥等，象徵勤學聰明，展現對學業精進的期盼。
                 </p>
-                <p>保佑學子們讀書順利、金榜題名，也庇佑文職人員事業晉升。古時士人期盼文昌帝君眷顧以求科舉高中，現今學生、家長仍會前往祈福，期望學業與職場競爭中脫穎而出。祭拜時常備芹菜、蔥等，象徵勤學聰明，展現對學業精進的期盼。</p>
               </div>
             </div>
 
             <div
               class="bg-stone-100 rounded-xl shadow-xl overflow-hidden deity-card md:col-span-2 reveal"
               style="transition-delay: 500ms"
-            >
-              
-            </div>
+            ></div>
           </div>
         </section>
       </div>

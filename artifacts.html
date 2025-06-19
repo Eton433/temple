@@ -17,6 +17,22 @@
         box-sizing: border-box;
         font-family: "Noto Serif TC", serif;
       }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("background.png"); /* 放正確路徑 */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        opacity: 0.25; /* 可調整透明度 */
+        z-index: -1;
+        pointer-events: none;
+        filter: blur(2px); /* 加模糊感，讓圖案更柔和 */
+      }
 
       /* 導覽列樣式 */
       .nav-link {
@@ -266,8 +282,7 @@
             </h2>
             <p class="reveal" style="transition-delay: 600ms">
               在有形文化資產方面，廟方近年與國立政治大學宗教研究所合作，致力於修復具百年歷史的香爐。此計畫導入科技掃描、數位建模與劣化分析等現代技術，精準評估香爐因裂痕、舊式金屬包覆等問題造成的老化狀況，並依此提出科學化的修復建議，大幅提升了傳統文物的保存年限與修復準確性。
-
-至於無形文化資產，由廟方主辦的「尪公年例祭典」，已於2023至2024年間由臺北市文化局啟動「列冊追蹤」程序。目前祭典正處於文化資產的登錄審議階段，但尚未完成法定程序，還未正式核定。
+              至於無形文化資產，由廟方主辦的「尪公年例祭典」，已於2023至2024年間由臺北市文化局啟動「列冊追蹤」程序。目前祭典正處於文化資產的登錄審議階段，但尚未完成法定程序，還未正式核定。
             </p>
           </div>
         </section>
